@@ -177,7 +177,7 @@
 |family_name_kana|string|null: false|
 |birthday|date|
 |address_number|string|
-|prefecture_id|references|null: false, foreign_key: true|
+|prefecture|
 |city|string|
 |address|string|
 |building_name|string|
@@ -186,14 +186,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :prefecture
-
-## Prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|
-
-### Association
-- has_many :users
 
 ## Likesテーブル
 |Column|Type|Options|
