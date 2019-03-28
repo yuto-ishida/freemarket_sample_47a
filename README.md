@@ -4,6 +4,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|description|text|
 |user_id|references|null: false, foreign_key: true|
 |category_parent_id|references|null: false, foreign_key: true|
 |category_child_id|references|null: false, foreign_key: true|
