@@ -185,7 +185,6 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
 
 ## Likesテーブル
 |Column|Type|Options|
