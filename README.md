@@ -11,6 +11,7 @@
 |category_grandchild_id|references|null: false, foreign_key: true|
 |brand_id|references|null: false, foreign_key: true|
 |condition_id|references|null: false, foreign_key: true|
+|item_size_id|references|null: false, foreign_key: true|
 |shipping_burden_id|references|null: false, foreign_key: true|
 |shipping_style_id|references|null: false, foreign_key: true|
 |date_of_shipment_id|references|null: false, foreign_key: true|
@@ -28,12 +29,13 @@
 - belongs_to :shipping_style
 - belongs_to :date_of_shipment
 - belongs_to :credit
+- belongs_to :buyer
+- belongs_to :user, through: :buyers
+- belongs_to :item_size
 - has_many :messages, :dependent => :destroy
 - has_many :points
 - has_many :evaluations
 - has_many :likes, :dependent => :destroy
-- belongs_to :buyer
-- belongs_to :user, through: :buyers
 
 ## Informationsテーブル
 |Column|Type|Options|
@@ -87,6 +89,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|
+
+### Association
+- has_many :items
+
+## Item_sizesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|
+|parent|integer|
 
 ### Association
 - has_many :items
