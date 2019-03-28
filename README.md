@@ -27,7 +27,10 @@
 - belongs_to :shipping_style
 - belongs_to :date_of_shipment
 - belongs_to :credit
+- has_many :messages, :dependent => :destroy
 - has_many :points
+- has_many :evaluations
+- has_many :likes, :dependent => :destroy
 - belongs_to :buyer
 - belongs_to :user, through: :buyers
 
@@ -118,11 +121,11 @@
 |pasword|string|null: false|
 
 ### Association
-- has_many :items
-- has_many :credits
-- has_many :contact_informations
+- has_many :items, :dependent => :destroy
+- has_many :credits, :dependent => :destroy
+- has_many :contact_informations, :dependent => :destroy
 - has_many :informations
-- has_many :points
+- has_many :points, :dependent => :destroy
 - has_many :evaluations
 - has_many :likes
 - has_many :messages
@@ -161,8 +164,7 @@
 |satisfaction|integer|null: false|
 
 ### Association
-- belongs_to :user1
-- belongs_to :user2
+- belongs_to :user
 - belongs_to :item
 
 ## Contact_informationsテーブル
