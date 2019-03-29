@@ -13,4 +13,19 @@
  *= require_tree .
  *= require_self
  */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "./reset";
+@import "./tops";
+@import "./slick";
+@import "./slick-theme";
+
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+body{
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
