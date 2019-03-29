@@ -1,290 +1,166 @@
+= render "shered/header"
+
+.top-main
+  .slider
+    .slide
+      .first_slide
+
+    .slide
+      .second_slide
+        .second_slide__sub_box
+          .second_slide__phone_hand_image
+            =image_tag("/top_images/main_content_pc.png")
+          .text_button_area
+            .second_slide__main_text
+              スマホでかんたん
+              %br フリマアプリ
+            .second_slide__sub_text
+              メルカリはスマホカメラからすぐに出品できる
+              %br 購入時も安心な独自システムのアプリです。
+            .second_slide__icons
+              = link_to image_tag('/top_images/app-store.svg', class: "second_slide__icons--app_store_icon")
+              = link_to image_tag('/top_images/google-play.svg', class: "second_slide__icons--google_play_icon")
+    .slide
+      .third__slide
 
 
+  .top-products
+    .pickup
+      .pickup__title
+        ピックアップカテゴリー
+      .pickup__subtitle
+        レディース 新着アイテム
+      .pickup__products
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
-.top-wrapper
-  %header.header
-    .header__body
-      .header__search
-        = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
-        %input.header__search--box{ placeholder: "何かお探しですか？" }
-        = link_to icon('fas','search', class: "header__search--icon")
-      .header__buttons
-        = icon('fas','list',class: "header__list_tag_icon")
-        = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
-        = icon('fas','tag',class: "header__tag_icon")
-        = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
-        .header__light
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
-          = link_to mypages_path, class: 'header__notice' do
-            = icon('far','bell', class: 'header__bell_icon')
-            .header__notice--title
-              お知らせ
-          = link_to mypages_path, class: 'header__to_do_list' do
-            = icon('fas','check', class: 'header__chack_icon')
-            .header__to_do_list_title
-              やることリスト
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
-          = link_to mypages_path, class: 'header__mypage' do
-            = image_tag '/top_images/mypage_image.jpg', class: 'header__mypage--icon'
-            .header__mypage--title
-              マイページ
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
-  .top-main
-    .slider
-      .slide
-        .first_slide
+      .pickup__products
 
-      .slide
-        .second_slide
-          .second_slide__sub_box
-            .second_slide__phone_hand_image
-              =image_tag("/top_images/main_content_pc.png")
-            .text_button_area
-              .second_slide__main_text
-                スマホでかんたん
-                %br フリマアプリ
-              .second_slide__sub_text
-                メルカリはスマホカメラからすぐに出品できる
-                %br 購入時も安心な独自システムのアプリです。
-              .second_slide__icons
-                = link_to image_tag('/top_images/app-store.svg', class: "second_slide__icons--app_store_icon")
-                = link_to image_tag('/top_images/google-play.svg', class: "second_slide__icons--google_play_icon")
-      .slide
-        .third__slide
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
 
-    .top-products
-      .pickup
-        .pickup__title
-          ピックアップカテゴリー
-        .pickup__subtitle
-          レディース 新着アイテム
-        .pickup__products
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
+= render "shered/fotter"
 
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-
-        .pickup__products
-
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-
-          .product
-            .product__image
-              = image_tag('/top_images/test1.jpg', class: "test_image")
-            .product__body
-              .product__name
-                マーガレッド ハウエル サンダルああああああああ
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥4,000
-                  .product__tax
-                    (税込)
-                .product__like
-                  = icon('far','heart', class: "product__good_icon")
-                  .product__like_num
-                    12
-
-        .pickup__show-all
-          = link_to "すべての商品を見る", categories_path,class: "show-all__button"
-
-
-
-
-%fotter.fotter
-  .fotter__image
-    .fotter__image_buttons
-      = image_tag('/top_images/mobiles_image.png',class: "mobile_image")
-      .fotter__sub_box
-        .fotter__sub_text
-          スマホでかんたんフリマアプリ
-        .fotter__main_text
-          今すぐ無料ダウンロード！
-        = image_tag('/top_images/mercari_icon.png', class: "mercari_box_icon")
-        = image_tag('/top_images/app-store.svg', class: "app_store_icon")
-        = image_tag('/top_images/google-play.svg', class: "google_play_icon")
-
-  .fotter__links
-    .fotter__main
-      .fotter__about_mercari
-        .about_mercari__title.fotter__title
-          メルカリについて
-        .about_mercari__child.fotter__child
-          .link= link_to "会社概要　(運営会社)"
-          .link= link_to "採用情報"
-          .link= link_to "プレスリリース"
-          .link= link_to "公式ブログ"
-          .link= link_to "メルカリロゴ利用ガイドライン"
-          .about_mercari__child--logos
-            = icon('fab','twitter', class: "twitter_icon")
-            = icon('fab','facebook', class: "facebook_icon")
-
-          .about_mercari__child--logos
-      .fotter__help_guide
-        .help_guide__title.fotter__title
-          ヘルプ＆ガイド
-        .help_guide__child.fotter__child
-          .link= link_to "メルカリガイド"
-          .link= link_to "らくらくメルカリ便"
-          .link= link_to "ゆうゆうメルカリ便"
-          .link= link_to "大型メルカリ便"
-          .link= link_to "車体取引ガイド"
-          .link= link_to "メルカリあんしん・あんぜん宣言！"
-          .link= link_to "偽ブランド撲滅への取り組み"
-          .link= link_to "メルカリボックス"
-
-      .fotter__privacy
-        .privacy__title.fotter__title
-          プライバシーと利用規約
-        .privacy__child--box
-          .privacy__child--left.fotter__child
-            .link= link_to "プライバシーポリシー"
-            .link= link_to "メルカリ利用規約"
-            .link= link_to "メルカリ利用規約・有償ポイント\nに関する利用特約"
-            .link= link_to "あんしんスマホサポート制度に関\nする利用規約"
-            .link= link_to "コンプライアンスポリシー"
-          .privacy__child--right.fotter__child
-            .link= link_to "個人データの安全管理に係る基本\n方針"
-            .link= link_to "特定商取引に関する表記"
-            .link= link_to "資金決済法に基づく表記"
-            .link= link_to "法令遵守と犯罪抑止のために"
-            .link= link_to "返品・返金ポリシー"
-
-      .fotter__country
-        .country__title.fotter__title
-          国
-        .country__child.fotter__child
-          .link= link_to "日本"
-          .link= link_to "United States"
-    .fotter__bottom
-      .fotter__mercari_icon
-        = image_tag('/top_images/mercari_white_icon.svg', class: "f_mercari_icon")
-
-      .fotter__copyright
-        ©2019 Meracari
-
-.camera__button
-  出品
-  %br
-  = icon('fas', 'camera',class: "camera_icon")
 
