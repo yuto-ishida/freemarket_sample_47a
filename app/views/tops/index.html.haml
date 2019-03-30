@@ -158,6 +158,24 @@
                 .product__like_num
                   12
 
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                = icon('far','heart', class: "product__good_icon")
+                .product__like_num
+                  12
+
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
