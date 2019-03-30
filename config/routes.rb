@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "tops#index"
   resources :tops, only: :index
   resources :brands, only: :index
-  resources :categories only: :index
+  resources :categories, only: :index
   resources :mypages, only: [:new, :create, :update, :show ,:destroy]
 
 
