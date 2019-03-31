@@ -20,12 +20,5 @@
 @import "./tops";
 @import "./slick";
 @import "./slick-theme";
+@import "./tops_new";
 
-@mixin box($height,$width){
-  height: $height;
-  width: $width;
-}
-
-body{
-    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-}
