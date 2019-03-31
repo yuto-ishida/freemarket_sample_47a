@@ -1,71 +1,73 @@
+
+body{
+    font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+
 @mixin box($height,$width){
   height: $height;
   width: $width;
 }
 
-.item_new__child--title{
-    font-size: 16px;
-    font-weight: 600;
-}
 
-.item_new__need_mark{
-  @include box(15px,24px);
-  border-radius: 2px;
-  font-size: 12px;
-  padding: 2px 4px;
-  margin-left: 10px;
-  background-color: #ea352d;
-  color: white;
-  line-height: 17px;
-}
-
-.item_new__right-box{
-  @include box(auto,400px);
-  margin-left: auto;
-}
-
-.item-new__sub--title{
-  font-weight: 600;
-  color: #888;
-  font-size: 14px;
-}
-.item_new_question{
-  color:#0099e8;
-}
-.item_new__line{
-  border: 1px solid #f5f5f5;
-}
-
-.item_new__allow-icon{
-  @include box(0px,0px);
-  position: relative;
-  bottom: 35px;
-  left: 363px;
-  font-size: x-large;
-  color: #888;
-}
-
-.item_new__wrapper{
-  background: #f5f5f5;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
-
-.item_new__header{
-  position: relative;
-  @include box(129px,100%);
-  .mercari_calor_icon{
-    position: absolute;
-    top: 40px;
-    right:  calc(50% - 92px);
-    @include box(49px,185px);
-    margin: 0 auto;
-  }
-}
 
 .item_new{
   @include box(auto,700px);
   background-color: white;
   margin: 0 auto;
+  &__child--title{
+      font-size: 16px;
+      font-weight: 600;
+  }
+  &__need_mark{
+    @include box(15px,24px);
+    border-radius: 2px;
+    font-size: 12px;
+    padding: 2px 4px;
+    margin-left: 10px;
+    background-color: #ea352d;
+    color: white;
+    line-height: 17px;
+  }
+  &__right-box{
+    @include box(auto,400px);
+    margin-left: auto;
+  }
+  &__sub--title{
+    font-weight: 600;
+    color: #888;
+    font-size: 14px;
+  }
+  &_question{
+    color:#0099e8;
+  }
+  &__line{
+    border: 1px solid #f5f5f5;
+  }
+  &__allow-icon{
+    @include box(0px,0px);
+    position: relative;
+    bottom: 35px;
+    left: 363px;
+    font-size: x-large;
+    color: #888;
+  }
+  &__wrapper{
+    background: #f5f5f5;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  }
+  &__header{
+    position: relative;
+    @include box(129px,100%);
+    .mercari_calor_icon{
+      position: absolute;
+      top: 40px;
+      right:  calc(50% - 92px);
+      @include box(49px,185px);
+      margin: 0 auto;
+    }
+  }
+
   &__title{
     @include box(33px,675px);
     text-align: center;
