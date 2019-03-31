@@ -1,0 +1,324 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.item_new__child--title{
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.item_new__need_mark{
+  @include box(15px,24px);
+  border-radius: 2px;
+  font-size: 12px;
+  padding: 2px 4px;
+  margin-left: 10px;
+  background-color: #ea352d;
+  color: white;
+  line-height: 17px;
+}
+
+.item_new__right-box{
+  @include box(auto,400px);
+  margin-left: auto;
+}
+
+.item-new__sub--title{
+  font-weight: 600;
+  color: #888;
+  font-size: 14px;
+}
+.item_new_question{
+  color:#0099e8;
+}
+.item_new__line{
+  border: 1px solid #f5f5f5;
+}
+
+.item_new__allow-icon{
+  @include box(0px,0px);
+  position: relative;
+  bottom: 35px;
+  left: 363px;
+  font-size: x-large;
+  color: #888;
+}
+
+.item_new__wrapper{
+  background: #f5f5f5;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+
+.item_new__header{
+  position: relative;
+  @include box(129px,100%);
+  .mercari_calor_icon{
+    position: absolute;
+    top: 40px;
+    right:  calc(50% - 92px);
+    @include box(49px,185px);
+    margin: 0 auto;
+  }
+}
+
+.item_new{
+  @include box(auto,700px);
+  background-color: white;
+  margin: 0 auto;
+  &__title{
+    @include box(33px,675px);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 32px 16px;
+  }
+  &__image{
+    @include box(223px,620px);
+    padding: 40px;
+    &--titles{
+      display: flex;
+    }
+    &--description{
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    &--input{
+      @include box(50px,538px);
+      background-color: #f5f5f5;
+      padding: 55px 40px;
+      border: 1px dashed #ccc;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: -2px;
+    }
+  }
+  &__item_name_description{
+    padding: 40px;
+    &--name{
+      &-title{
+        display: flex;
+      }
+      &-input{
+        margin-top: 8px;
+        @include box(28px,586px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px 16px 8px 16px;
+      }
+    }
+    &--description{
+      margin-top: 40px;
+      &-titile
+      {
+        display: flex;
+      }
+      &-input{
+        margin-top: 8px;
+        @include box(122px,586px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 10px 16px 8px 16px;
+      }
+    }
+  }
+  &__deteils{
+    padding: 40px;
+    display: flex;
+    &--titile{
+      display: flex;
+    }
+    &--category{
+      &-name{
+        display: flex;
+      }
+      &-input{
+        position: relative;
+        margin-top: 8px;
+        @include box(48px,366px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0px 16px;
+      }
+    }
+    &--stetus{
+      margin-top: 15px;
+      &-title{
+        display: flex;
+      }
+      &-input{
+        margin-top: 8px;
+        @include box(48px,366px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0px 16px;
+      }
+    }
+  }
+  &__deteils--shipping{
+    padding: 40px;
+    display: flex;
+    &-title{
+      display: flex;
+    }
+    &-burden-title{
+      display: flex;
+    }
+    &-burden-input{
+        margin-top: 8px;
+      @include box(48px,366px);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0px 16px;
+    }
+    &-area-title{
+      padding-top: 15px;
+      display: flex;
+      .item_new__need_mark{
+      }
+    }
+    &-area-input{
+        margin-top: 8px;
+      @include box(48px,366px);
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 0px 16px;
+    }
+  }
+  &__deteils--dete_of_shipment-title{
+    padding-top: 15px;
+    display: flex;
+  }
+  &__deteils--dete_of_shipment-input{
+    margin-top: 8px;
+    @include box(48px,366px);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0px 16px;
+  }
+  &__price{
+    padding: 40px;
+    display: flex;
+    &--titel{
+      display: flex;
+    }
+    &--price{
+      display: flex;
+      &-title{
+        display: flex;
+        @include box(48px, 400px);
+        &-title{
+          font-size: 14px;
+          font-weight: 600;
+          margin:  auto 0;
+        }
+        .item_new__need_mark-price{
+          margin: auto 0;
+        }
+        .item_new__yen_mark{
+          margin: auto 3px auto auto;
+          padding: auto 5px;
+          font-size: 14px;
+        }
+      }
+      &-input{
+        @include box(48px,126px);
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0px 16px;
+      }
+      &-input::placeholder {
+        text-align: right;
+      }
+    }
+    &--price-sales-commission{
+      display: flex;
+      @include box(17px, 400px);
+      padding: 20px 0;
+      font-size: 14px;
+      &-title{
+      }
+      &-value{
+        margin-left: auto;
+      }
+    }
+    &--price-profit{
+      display: flex;
+      @include box(17px, 400px);
+      padding: 20px 0;
+      margin-bottom: 10px;
+      font-size: 14px;
+      &-title{
+        font-size: 16px;
+        font-weight: 600;
+      }
+      &-value{
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: auto;
+      }
+    }
+  }
+  &__send{
+    padding: 40px;
+    &--text{
+      font-size: 14px;
+      a{
+          color: #0099e8;
+        }
+      a:hover{
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+    &--send-button{
+      margin-top: 40px;
+      @include box(50px, 620px);
+      text-align: center;
+      line-height: 50px;
+      background-color: red;
+      color: white;
+    }
+    &--back-button{
+      margin: 24px auto 0;
+      @include box(50px, 279px);
+      text-align: center;
+      line-height: 50px;
+      background-color: #AAAAAA;
+      color: white;
+    }
+    &--back-button:hover{
+      opacity: 0.7;
+    }
+  }
+}
+.item_new__fotter{
+  @include box(160px,456px);
+  margin: 40px auto 0;
+  &-buttons{
+    display: flex;
+    font-size: 12px;
+    padding: 40px auto;
+    margin-left: 27px;
+  }
+  &-button{
+    margin-left: 16px;
+  }
+  &-button:hover{
+    opacity: 0.5;
+    text-decoration: underline;
+  }
+  &_icon{
+    margin: 40px auto 0;
+    @include box(80px,65px)
+  }
+  &_icon:hover{
+    opacity: 0.7;
+  }
+  &_copyright{
+    padding: 8px auto 0;
+    font-size: 13px;
+    text-align: center;
+  }
+}
