@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :tops, only: :new
   resources :brands, only: :index
   resources :categories, only: :index
+  get 'mypages/logout' => 'mypages#logout'
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
+
   namespace :mypages do
     resources :identifications, only: [:new, :create]
   end
