@@ -9,7 +9,7 @@
 
 - buttons_box = [[nil,button_titles_main],["メルペイ",button_titles_mercari],["設定",button_titles_setting]]
 
-- button_num = 0
+- select_view_side_button_num = 0
 
 .mypage
   .mypage__sidebar
@@ -20,7 +20,7 @@
             = buttons[0]
         -  buttons[1].each do |title|
           = link_to do
-            - if button_num == 22 then
+            - if select_view_side_button_num == 22 then
               .mypage__button--main
                 .mypage__button--main-title
                   = title
@@ -32,7 +32,7 @@
                   = title
                 .mypage__button--arrow-icon
                   = icon('fas','chevron-right')
-          - button_num += 1
+          - select_view_side_button_num += 1
 
   .mypage__main
     .logout__box
