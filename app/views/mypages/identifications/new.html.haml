@@ -1,0 +1,115 @@
+= render "shered/header"
+
+
+- button_titles_main =["マイページ","お知らせ","やることリスト","いいね ! 一覧","出品する","出品した商品 - 出品中","出品した商品 - 取引中","出品した商品 - 売却済み","購入した商品 - 取引中","購入した商品 - 過去の取引","ニュース一覧","評価一覧","ガイド","お問い合わせ"]
+
+- button_titles_mercari = ["売上・振込申請","ポイント"]
+
+- button_titles_setting = ["プロフィール","発送元・お届け先住所変更","お支払い方法","メール/パスワード","本人情報","電話番号の確認","ログアウト"]
+
+- buttons_box = [[nil,button_titles_main],["メルペイ",button_titles_mercari],["設定",button_titles_setting]]
+
+- button_num = 0
+
+.mypage
+  .mypage__sidebar
+    - buttons_box.each do |buttons|
+      .mypage__buttons
+        - if !buttons[0].nil?
+          .mypage__buttons--title
+            = buttons[0]
+        -  buttons[1].each do |title|
+          = link_to do
+            - if button_num == 20 then
+              .mypage__button--main
+                .mypage__button--main-title
+                  = title
+                .mypage__button--main-arrow-icon
+                  = icon('fas','chevron-right')
+            - else
+              .mypage__button
+                .mypage__button--title
+                  = title
+                .mypage__button--arrow-icon
+                  = icon('fas','chevron-right')
+          - button_num += 1
+
+  .mypage__main
+    .mypage__identifications
+      .mypage__identifications--title
+        本人情報の登録
+      .mypage__identifications--form
+        .mypage__identifications--form-info
+          お客様の本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .mypage__identifications--form-info-link
+            =link_to do
+              本人確認書類のアップロードについて
+              = icon('fas','chevron-right')
+        .mypage__identifications--form-name
+          .mypage__identifications--form-name-title
+            .mypage__identifications--child-title
+              お名前
+          .mypage__identifications--form-name-value
+            user_name
+        .mypage__identifications--form-name-kana
+          .mypage__identifications--form-name-kana-title
+            .mypage__identifications--child-title
+              お名前カナ
+          .mypage__identifications--form-name-kana-value
+            ユーザーネーム
+        .mypage__identifications--form-birthday
+          .mypage__identifications--form-birthday-title
+            .mypage__identifications--child-title
+              生年月日
+          .mypage__identifications--form-birthday-value
+            2000/1/1
+        .mypage__identifications--form-post-code
+          .mypage__identifications--form-post-code-title
+            .mypage__identifications--child-title
+              郵便番号
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-post-code-value{placeholder: "例) 1234567"}
+        .mypage__identifications--form-prefectures
+          .mypage__identifications--form-prefectures-title
+            .mypage__identifications--child-title
+              都道府県
+            .mypage__identifications--child-mark
+              任意
+          .mypage__identifications--form-prefectures-value
+            %input.mypage__identifications--form-prefectures-value-input{placeholder: "--"}
+            = icon('fas','chevron-down',class: "mypage__identifications--form-prefectures-value-icon")
+        .mypage__identifications--form-cities
+          .mypage__identifications--form-cities-title
+            .mypage__identifications--child-title
+              市町村
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-cities-value{placeholder: "例) 横浜市緑区"}
+        .mypage__identifications--form-address
+          .mypage__identifications--form-address-title
+            .mypage__identifications--child-title
+              番地
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-address-value{placeholder: "例) 青山1-1-1"}
+        .mypage__identifications--form-building_name
+          .mypage__identifications--form-building_name-title
+            .mypage__identifications--child-title
+              建物名
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-building_name-value{placeholder: "例) 柳ビル103"}
+        .mypage__identifications--form-submit
+          .mypage__identifications--form-submit-button
+            登録する
+        .mypage__identifications--form-about
+          .mypage__identifications--form-about-link
+            = link_to do
+              本人情報の登録について
+              = icon('fas','chevron-right')
+
+
+= render "shered/fotter"

@@ -1,0 +1,151 @@
+.item_new__wrapper
+  .item_new__header
+    = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon" )
+  .item_new
+    .item_new__title
+      商品の情報を入力
+    %hr.item_new__line
+    .item_new__image
+      .item_new__image--titles
+        .item_new__child--title
+          出品画像
+        .item_new__need_mark
+          必須
+      .item_new__image--description
+        最大10枚までアップロードできます
+      .item_new__image--input
+        ドラッグアンドドロップ
+        %br
+        またはクリックしてファイルをアップロード
+
+    %hr.item_new__line
+    .item_new__item_name_description
+      .item_new__item_name_description--name
+        .item_new__item_name_description--name-title
+          .item_new__child--title
+            商品名
+          .item_new__need_mark
+            必須
+        %input.item_new__item_name_description--name-input{type: "text",placeholder:"商品名 (必須 40文字まで)"}
+      .item_new__item_name_description--description
+        .item_new__item_name_description--description-titile
+          .item_new__child--title
+            商品の説明
+          .item_new__need_mark
+            必須
+        %textarea.item_new__item_name_description--description-input{type: "textarea",placeholder:"商品の説明  (必須 1,000文字以内)  (色、素材、重さ、定価、注意点など)   例) 2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+
+    %hr.item_new__line
+    .item_new__deteils
+      .item_new__deteils--titile
+        .item-new__sub--title
+          商品の詳細
+          = icon('fas','question-circle',class: "item_new_question")
+      .item_new__deteils--right-box.item_new__right-box
+        .item_new__deteils--category
+          .item_new__deteils--category-name
+            .item_new__child--title
+              カテゴリー
+            .item_new__need_mark
+              必須
+          %input.item_new__deteils--category-input{type: "text",placeholder:"---"}
+            = icon('fas','chevron-down',class: "item_new__allow-icon")
+        .item_new__deteils--stetus
+          .item_new__deteils--stetus-title
+            .item_new__child--title
+              商品の状態
+            .item_new__need_mark
+              必須
+          %input.item_new__deteils--stetus-input{type: "text",placeholder:"---"}
+            = icon('fas','chevron-down',class: "item_new__allow-icon")
+    %hr.item_new__line
+    .item_new__deteils--shipping
+      .item_new__deteils--shipping-title
+        .item-new__sub--title
+          配送について
+          = icon('fas','question-circle',class: "item_new_question")
+      .item_new__deteils--shipping-right-box.item_new__right-box
+        .item_new__deteils--shipping-burden-title
+          .item_new__child--title
+            配送料の負担
+          .item_new__need_mark
+            必須
+        %input.item_new__deteils--shipping-burden-input{type: "text",placeholder:"---"}
+          = icon('fas','chevron-down',class: "item_new__allow-icon")
+        .item_new__deteils--shipping-area-title
+          .item_new__child--title
+            発送元の地域
+          .item_new__need_mark
+            必須
+        %input.item_new__deteils--shipping-area-input{type: "text",placeholder:"---"}
+          = icon('fas','chevron-down',class: "item_new__allow-icon")
+        .item_new__deteils--dete_of_shipment-title
+          .item_new__child--title
+            発送までの日数
+          .item_new__need_mark
+            必須
+        %input.item_new__deteils--dete_of_shipment-input{type: "text",placeholder:"---"}
+          = icon('fas','chevron-down',class: "item_new__allow-icon")
+
+    %hr.item_new__line
+    .item_new__price
+      .item_new__price--titel
+        .item-new__sub--title
+          販売価格(300~9,999,999)
+          = icon('fas','question-circle',class: "item_new_question")
+      .item_new__price--right-box.item_new__right-box
+        .item_new__price--price
+          .item_new__price--price-title
+            .item_new__price--price-title-title
+              価格
+            .item_new__need_mark-price
+              .item_new__need_mark
+                必須
+            .item_new__yen_mark
+              ¥
+          %input.item_new__price--price-input{type: "text",placeholder:"例) 300"}
+        %hr
+        .item_new__price--price-sales-commission
+          .item_new__price--price-sales-commission-title
+            販売手数料 (10%)
+          .item_new__price--price-sales-commission-value
+            ー
+        %hr
+        .item_new__price--price-profit
+          .item_new__price--price-profit-title
+            販売利益
+          .item_new__price--price-profit-value
+            ー
+    %hr.item_new__line
+    .item_new__send
+      .item_new__send--text
+        = link_to "禁止されている出品"
+        、
+        = link_to "行為"
+        を必ずご確認ください。
+        %br
+        またブランド品でシリアルナンバー等がある場合はご記載ください。
+        = link_to "偽ブランドの販売"
+        は犯罪であり処罰される可能性があります。
+        %br
+        また、出品をもちまして
+        = link_to "加盟店規約"
+        に同意したことになります。
+      .item_new__send--send-button
+        出品する
+      .item_new__send--back-button
+        もどる
+
+  .item_new__fotter
+    .item_new__fotter-buttons
+      .item_new__fotter-button
+        プライバシーポリシー
+      .item_new__fotter-button
+        メルカリ利用規約
+      .item_new__fotter-button
+        特定商取引に関する表記
+    .item_new__fotter_icon
+      = image_tag("/top_images/mercari_gray.svg")
+    .item_new__fotter_copyright
+      ©︎2019 Mercari
+
