@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :brands, only: :index
   resources :categories, only: :index
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
-
+  namespace :mypages do
+    resources :identifications, only: [:new, :create]
+  end
 
 end
