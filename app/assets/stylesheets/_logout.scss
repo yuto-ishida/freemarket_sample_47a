@@ -1,0 +1,19 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.logout__box
+{
+ @include box(50px,572px);
+ background-color: #fff;
+ padding: 64px;
+}
+.logout__button{
+  @include box(50px,320px);
+  background-color: #ea352d;;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 50px;
+  color: #fff;
+}
