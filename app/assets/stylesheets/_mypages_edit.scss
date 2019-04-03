@@ -1,0 +1,53 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.mypage_edit{
+  &__title{
+    background-color: #fff;
+    @include box(33px,652px);
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__name{
+    @include box(60px,668px);
+    padding: 72px 16px 24px;
+    display: flex;
+    background-image: url("/mypage_images/mypage_main_image.png");
+    background-size:cover;
+    &--icon{
+      margin-left: auto;
+      @include box(60px,60px);
+      border-radius: 50%;
+    }
+    &-input{
+      margin: 7px auto 0 8px;
+      @include box(28px,186px);
+      padding: 10px 16px 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+  }
+  &__text{
+    @include box(282px,668px);
+    padding: 40px 16px;
+    background-color: #fff;
+    .mypage_edit__text--input{
+      @include box(194px,646px);
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  }
+  &__submit{
+    @include box(50px,668px);
+    margin-top: 16px;
+    background-color: #ea352d;
+    text-align: center;
+    line-height: 50px;
+    font-size: 14px;
+    color: white;
+  }
+}
