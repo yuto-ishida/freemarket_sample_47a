@@ -1,0 +1,29 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.sms_confirmation__form--space{
+
+  border-top: 0.25px solid #f5f5f5;
+  padding-bottom: 40px;
+  background-color: white;
+}
+
+.sms_confirmation_sms__bottom{
+    display: none;
+    @include box(auto,320px);
+    padding: 24px 64px 64px;
+    margin: 0 auto;
+  .sms_confirmation_sms__text{
+    margin-top: 8px;
+    font-size: 14px;
+    .sms_confirmation_sms__text-link{
+      color: #0099e8;
+    }
+    .sms_confirmation_sms__text-link:hover{
+      opacity: 0.5px;
+      text-decoration: underline;
+    }
+  }
+}

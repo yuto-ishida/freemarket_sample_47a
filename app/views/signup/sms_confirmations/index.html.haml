@@ -1,0 +1,24 @@
+- status_bar_main_number = 1
+.signup__wrapper
+  = render '/signup/shered/signup_header', status_bar_main_number: status_bar_main_number
+  .sms_confirmation__main
+    .sms_confirmation__main--title
+      電話番号の確認
+    .sms_confirmation__form
+      .sms_confirmation__form--title
+        携帯電話の番号
+
+      %input.sms_confirmation__form--input{type: "text",placeholder:"携帯電話の番号を入力"}
+      .sms_confirmation__form--notice
+        本人確認のため、電話番号のSMS（ショートメッセージサービス）を利用して認証を行います。
+      .sms_confirmation__form--submit-button
+        SMSを送信する
+      .sms_confirmation__form--notes
+        ※本人情報は正しく入力してください。会員登録後、修正するにはお時間をいただく場合があります。
+
+      .sms_confirmation__form--Personal_information
+        = link_to do
+          電話番号の確認が必要な理由
+          = icon('fas','chevron-right')
+
+  = render "/signup/shered/signup_fotter"

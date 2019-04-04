@@ -1,0 +1,37 @@
+- status_bar_main_number = 1
+.signup__wrapper
+  = render '/signup/shered/signup_header', status_bar_main_number: status_bar_main_number
+  .sms_confirmation__main
+    .sms_confirmation__main--title
+      電話番号の認証
+    .sms_confirmation__form
+      .sms_confirmation__form--title
+        認証番号
+
+      %input.sms_confirmation__form--input{type: "text",placeholder:"携帯電話の番号を入力"}
+      .sms_confirmation__form--notice
+        SMSで届いた認証番号を入力してください。
+      .sms_confirmation__form--submit-button
+        認証して完了
+    .sms_confirmation__form--space
+    .sms_confirmation__form
+      .sms_confirmation__form--title
+        30秒たっても認証番号が届かない方へ
+      .sms_confirmation__form--notice
+        電話で認証番号を聞くこともできます。
+      .sms_confirmation__form--submit-button
+        電話で認証番号を聞く  (通話無料)
+    .sms_confirmation__form--space
+    .sms_confirmation_sms__bottom
+      .sms_confirmation__form--title
+        認証番号を再送することもできます。もう一度電話番号を入力して下さい。
+      .sms_confirmation_sms__text
+        = link_to "電話番号を再度入力する","",class: "sms_confirmation_sms__text-link"
+      .sms_confirmation_sms__text
+        ※SMSが届かない場合は
+        = link_to "SMS受信設定","",class: "sms_confirmation_sms__text-link"
+        を確認して、もう一度電話番号を入力してください。
+
+
+= render "/signup/shered/signup_fotter"
+

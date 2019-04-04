@@ -1,0 +1,2 @@
+module Mypages::LogoutsHelper
+end
