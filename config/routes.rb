@@ -4,9 +4,21 @@ Rails.application.routes.draw do
   resources :tops, only: :new
   resources :brands, only: :index
   resources :categories, only: :index
-  resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
   namespace :mypages do
     resources :identifications, only: [:new, :create]
+    resources :logins, only: :index
+    resources :logouts, only: :index
+  end
+  resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
+  resources :signup, only: [:index]
+  namespace :signup do
+    resources :registrations, only: [:new, :create]
+    resources :sms_confirmations, only: :index
+    namespace :sms_confirmations do
+      resources :sms, only: :index
+    end
+    resources :addresses, only: [:new, :create]
+    resources :credit_cards, only: [:new, :create]
   end
 
 end

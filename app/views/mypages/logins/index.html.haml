@@ -1,0 +1,44 @@
+.login
+  .login__wrapper
+    .login__header
+      = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon" )
+
+  .login__main
+    .login__signup--link
+      .login__signup--link-description
+        アカウントをお持ちでない方はこちら
+      .login__signup--link-button
+        新規会員登録
+    .login__form
+      .login__form--facebook
+        .login__form--facebook-button
+          = icon('fab','facebook', class: "login__facebook_icon")
+          Facebookでログイン
+      .login__form--google
+        .login__form--google-button
+          = image_tag('/links/google.svg', class: "login__google_icon")
+          Googleでログイン
+      .login__form--mercari-login
+        %input.login__form--mercari-login-email{placeholder: "メールアドレス"}
+        %input.login__form--mercari-login-password{placeholder: "パスワード"}
+        .login__form--mercari-login-reCAPTCHA
+          = image_tag('/links/reCAPTCHA.png', class: "login__form--mercari-login-reCAPTCHA-icon")
+        .login__form--mercari-login-submit
+          ログイン
+      .login__form--forget
+        = link_to 'パスワードをお忘れの方','',class: "login__form--forget-link"
+
+
+
+  .login__fotter
+    .login__fotter-buttons
+      .login__fotter-button
+        プライバシーポリシー
+      .login__fotter-button
+        メルカリ利用規約
+      .login__fotter-button
+        特定商取引に関する表記
+    .login__fotter_icon
+      = image_tag("/top_images/mercari_gray.svg")
+    .login__fotter_copyright
+      ©︎2019 Mercari
