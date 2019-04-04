@@ -77,7 +77,7 @@ header{
     line-height: 36px;
     font-weight: 600;
   }
-  &__light{
+  &__right{
     @include box(auto,auto);
     position: absolute;
     line-height: 36px;
@@ -120,6 +120,30 @@ header{
     &--title{
       margin-left: 8px;
     }
+  }
+  &__login{
+    @include box(32px,56px);
+    padding: 0 10px;
+    background-color:#ea352d;
+    color: white;
+    font-size: 14px;
+    line-height: 32px;
+    border-radius: 4px;
+  }
+  &__signin{
+    @include box(30px,84px);
+    padding: 0 10px;
+    background-color:#fff;
+    color: #0099e8;
+    font-size: 14px;
+    line-height: 32px;
+    border: 1px solid #0099e8;
+    border-radius: 4px;
+    margin-left: 8px;
+  }
+  &__signin:hover{
+    background-color: #0099e8;
+    color: #fff;
   }
 }
 

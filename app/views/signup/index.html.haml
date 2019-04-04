@@ -1,15 +1,17 @@
 .signup
   .signup__wrapper
     .signup__header
-      = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon")
+      = link_to root_path do
+        = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon")
 
     .signup__main
       .signup__title
         新規会員登録
       .signup__form
-        .signup__form--mercari-login-button
-          = icon('far','envelope', class: "signup__mail_icon")
-          メールアドレスで登録
+        = link_to new_signup_registration_path do
+          .signup__form--mercari-login-button
+            = icon('far','envelope', class: "signup__mail_icon")
+            メールアドレスで登録
         .signup__form--facebook-button
           = icon('fab','facebook', class: "signup__facebook_icon")
           Facebookで登録
