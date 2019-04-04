@@ -111,17 +111,17 @@ body{
         margin-left: 10px;
         margin-right: auto;
       }
-    }
-    &:hover{
-      .mypage__top--information-mypage_icon{
-        opacity: 0.7;
-      }
-      .mypage__top--information-name{
-        opacity: 0.7;
-        text-decoration : underline;
-      }
-      .mypage__top--information-evaluation_Exhibit{
-        opacity: 0.7;
+      &:hover{
+        .mypage__top--information-mypage_icon{
+          opacity: 0.7;
+        }
+        .mypage__top--information-name{
+          opacity: 0.7;
+          text-decoration : underline;
+        }
+        .mypage__top--information-evaluation_Exhibit{
+          opacity: 0.7;
+        }
       }
     }
     &--select-button{
