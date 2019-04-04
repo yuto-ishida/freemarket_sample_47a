@@ -4,13 +4,12 @@ Rails.application.routes.draw do
   resources :tops, only: :new
   resources :brands, only: :index
   resources :categories, only: :index
-  get 'mypages/logout' => 'mypages#logout'
-  get 'mypages/login' => 'mypages#login'
-  get 'mypages/signup' => 'mypages#signup'
-  resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
   namespace :mypages do
     resources :identifications, only: [:new, :create]
+    resources :logins, only: :index
+    resources :logouts, only: :index
   end
+  resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
   resources :signup, only: [:index]
   namespace :signup do
     resources :registrations, only: [:new, :create]
