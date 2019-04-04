@@ -1,0 +1,90 @@
+- status_bar_main_number = 2
+.address__wrapper
+  = render '/signup/shered/signup_header', status_bar_main_number: status_bar_main_number
+  .address__main
+    .address__main--title
+      発送元・お届け先住所
+    .address__forms
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            お名前
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 山田"}
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 彩"}
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            お名前カナ
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) ヤマダ"}
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) アヤ"}
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            郵便番号
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 123-4567"}
+
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            都道府県
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "--"}
+          = icon('fas','chevron-down',class: "address__form--input-arrow-icon")
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            市区町村
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 横浜市緑区"}
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            番地
+          .address__form--title-mark-required
+            必須
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 青山1-1-1"}
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            建物名
+          .address__form--title-mark-any
+            任意
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 柳ビル103"}
+
+      .address__form
+        .address__form--title
+          .address__form--title-name
+            電話
+          .address__form--title-mark-any
+            任意
+        .address__form--input
+          %input.address__form--input-box{placeholder: "例) 09012345678"}
+
+      .address__submit
+        .address__submit--button
+          次へ進む
+
+  = render "/signup/shered/signup_fotter"

@@ -8,4 +8,7 @@ class MypagesController < ApplicationController
 
   def logout
   end
+
+  def login
+  end
 end
