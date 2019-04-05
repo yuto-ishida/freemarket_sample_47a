@@ -22,7 +22,7 @@
               .header__to_do_list_title
                 やることリスト
 
-            = link_to mypages_path, class: 'header__mypage' do
+            = link_to mypage_path(current_user) , method: "get",class: 'header__mypage' do
               = image_tag '/top_images/mypage_image.jpg', class: 'header__mypage--icon'
               .header__mypage--title
                 マイページ

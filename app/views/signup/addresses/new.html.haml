@@ -84,7 +84,8 @@
           %input.address__form--input-box{placeholder: "例) 09012345678"}
 
       .address__submit
-        .address__submit--button
-          次へ進む
+        = link_to new_signup_credit_card_path do
+          .address__submit--button
+            次へ進む
 
   = render "/signup/shered/signup_fotter"

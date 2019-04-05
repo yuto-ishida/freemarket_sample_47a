@@ -1,6 +1,7 @@
 .item_new__wrapper
   .item_new__header
-    = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon" )
+    = link_to root_path do
+      = image_tag("/top_images/mercari_color.svg", class: "mercari_calor_icon" )
   .item_new
     .item_new__title
       商品の情報を入力
