@@ -11,8 +11,9 @@
       %input.sms_confirmation__form--input{type: "text",placeholder:"携帯電話の番号を入力"}
       .sms_confirmation__form--notice
         SMSで届いた認証番号を入力してください。
-      .sms_confirmation__form--submit-button
-        認証して完了
+      = link_to new_signup_address_path do
+        .sms_confirmation__form--submit-button
+          認証して完了
     .sms_confirmation__form--space
     .sms_confirmation__form
       .sms_confirmation__form--title
