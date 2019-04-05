@@ -1,0 +1,72 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+.mypage_card{
+
+  &__title{
+    background-color: #fff;
+    @include box(33px,auto);
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__content{
+    background-color: #fff;
+    @include box(107px,auto);
+    font-size: 14px;
+    padding: 40px;
+    border-top:1px solid #f5f5f5;
+    &__name{
+      @include box(auto,320px);
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 1.5 ;
+      font-weight: 600;
+    }
+    &__add-button{
+      line-height: 48px;
+      text-align:center;
+      @include box(50px,320px);
+      margin: 24px auto;
+      background-color: #ea352d;
+      &--icon{
+        margin-right: 16px;
+        color:#fff;
+      }
+      &--text{
+        color:#fff;
+
+      }
+    }
+    &__add-button:hover{
+      opacity: 0.8;
+    }
+  }
+  &__payment{
+    @include box(110px,auto);
+    background-color: #fff;
+    &__box{
+      border-top:1px solid #eee;
+      margin: 0 64px;
+      padding: 40px;
+      font-size: 14px;
+      &__button{
+        @include box(auto,140px);
+        margin-left:auto;
+        &--text{
+          color: #0099e8;
+        }
+        &--icon{
+          color: #0099e8;
+        }
+        &--text:hover{
+        opacity: 0.5;
+        text-decoration: underline;
+        color: #0099e8;
+        }
+      }
+    }
+  }
+}

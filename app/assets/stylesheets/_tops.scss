@@ -523,8 +523,10 @@ button{
       margin-top: 16px;
       .about_mercari__child--logos{
         margin-top: 20px;
-        font-size: xx-large;
         display: flex;
+        a{
+          font-size: xx-large;
+        }
         .twitter_icon{
         }
         .facebook_icon{
