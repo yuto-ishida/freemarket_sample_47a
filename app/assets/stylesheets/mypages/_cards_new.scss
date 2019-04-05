@@ -1,0 +1,132 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+.card_new{
+
+  &__title{
+    background-color: #fff;
+    @include box(33px,auto);
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  &__content{
+    background-color: #fff;
+    @include box(527px,auto);
+    font-size: 14px;
+    padding: 24px 64px 64px 64px;
+    border-top:1px solid #f5f5f5;
+    &__box{
+      @include box(auto,320px);
+      margin: 0 auto;
+      &__card_no{
+        margin-top:40px;
+        &__upper{
+          &--title{
+
+            font-size: 14px;
+            font-weight: 600;
+          }
+          &--mark{
+            @include box(15px,24px);
+            border-radius: 2px;
+            font-size: 12px;
+            padding: 2px 4px;
+            margin-left: 10px;
+            background-color: #ea352d;
+            color: white;
+            line-height: 17px;
+          }
+        }
+        &--textbox{
+          @include box(28px,286px);
+          margin-top:8px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          line-height: 1.5;
+          font-size: 16px;
+          outline: none;
+        }
+        &--textbox:focus{
+          border-color:  #0099e8;
+        }
+        &__cardlist{
+          margin-top: 8px;
+          display:flex;
+
+          &--image{
+            @include box(20px,auto);
+            margin-right: 8px;
+          }
+        }
+      }
+      &__day{
+        display: flex;
+        margin-top:8px;
+
+        &__box{
+          @include box(48px,78px);
+          display: flex;
+          position:relative;
+
+
+          &--text{
+            @include box(48px,78px);
+            position:relative;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 0 16px;
+            outline:none;
+          }
+          &--text:hover{
+            cursor:pointer;
+          }
+          &--text:focus{
+            border-color:#0099e8;
+          }
+          &--allow-icon{
+            @include box(48px,2px);
+            position: absolute;
+            font-size:16px;
+            color:#888;
+            top:18px;
+            right: 0px;
+          }
+        }
+        &--right-text{
+          margin-left:50px;
+          margin-top: 17px;
+        }
+      }
+      &__discription{
+        @include box(20px,170px);
+        margin:8px 0 auto auto;
+        display:flex;
+        &--icon{
+          font-size: 14px;
+          color: #0099e8;
+        }
+        &--text{
+          font-size: 14px;
+          color:#0099e8;
+        }
+      }
+      &__red-button{
+        color:#fff;
+        margin-top:28px;
+        @include box(48px,auto);
+        background-color:#ea352d;
+        font-size:14px;
+        text-align:center;
+        line-height:48px;
+      }
+      &__red-button:hover{
+        cursor:pointer;
+
+      }
+    }
+  }
+}
