@@ -2,7 +2,8 @@
   %header.header
     .header__body
       .header__search
-        = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
+        = link_to root_path do
+          = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
         %input.header__search--box{ placeholder: "何かお探しですか？" }
         = link_to icon('fas','search', class: "header__search--icon")
       .header__buttons
@@ -10,18 +11,26 @@
         = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
         = icon('fas','tag',class: "header__tag_icon")
         = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
-        .header__light
+        .header__right
+          - if user_signed_in?
+            = link_to mypages_path, class: 'header__notice' do
+              = icon('far','bell', class: 'header__bell_icon')
+              .header__notice--title
+                お知らせ
+            = link_to mypages_path, class: 'header__to_do_list' do
+              = icon('fas','check', class: 'header__chack_icon')
+              .header__to_do_list_title
+                やることリスト
 
-          = link_to mypages_path, class: 'header__notice' do
-            = icon('far','bell', class: 'header__bell_icon')
-            .header__notice--title
-              お知らせ
-          = link_to mypages_path, class: 'header__to_do_list' do
-            = icon('fas','check', class: 'header__chack_icon')
-            .header__to_do_list_title
-              やることリスト
+            = link_to mypage_path(current_user) , method: "get",class: 'header__mypage' do
+              = image_tag '/top_images/mypage_image.jpg', class: 'header__mypage--icon'
+              .header__mypage--title
+                マイページ
+          - else
 
-          = link_to mypages_path, class: 'header__mypage' do
-            = image_tag '/top_images/mypage_image.jpg', class: 'header__mypage--icon'
-            .header__mypage--title
-              マイページ
+            = link_to mypages_logins_path do
+              .header__login
+                ログイン
+            = link_to signup_index_path do
+              .header__signin
+                新規会員登録

@@ -1,0 +1,58 @@
+- status_bar_main_number = 3
+.address__wrapper
+  = render '/signup/shered/signup_header', status_bar_main_number: status_bar_main_number
+  .credit_cards__main
+    .credit_cards__main--title
+      お支払い方法
+    .credit_cards__forms
+      .credit_cards__form
+        .credit_cards__form--title
+          .credit_cards__form--title-name
+            カード番号
+          .credit_cards__form--title-mark-required
+            必須
+        .credit_cards__form--input
+          %input.credit_cards__form--input-box{placeholder: "半角数字のみ"}
+        .credit_cards__form--card-icons
+          = image_tag("/signup/visa.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/master-card.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/saison-card.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/jcb.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/american_express.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/dinersclub.svg",class: "credit_cards__form--card")
+          = image_tag("/signup/discover.svg",class: "credit_cards__form--card")
+
+      .credit_cards__form
+        .credit_cards__form--title
+          .credit_cards__form--title-name
+            有効期限
+          .credit_cards__form--title-mark-required
+            必須
+        .credit_cards__form--input
+          %input.credit_cards__form--input-date-box{value: "01"}
+          = icon('fas','chevron-down',class: "credit_cards__form--input-arrow-icon")
+          .credit_cards__form--input-unit
+            月
+        .credit_cards__form--input
+          %input.credit_cards__form--input-date-box{value: "19"}
+          = icon('fas','chevron-down',class: "credit_cards__form--input-arrow-icon")
+          .credit_cards__form--input-unit
+            年
+      .credit_cards__form
+        .credit_cards__form--title
+          .credit_cards__form--title-name
+            セキュリティコード
+          .credit_cards__form--title-mark-required
+            必須
+        .credit_cards__form--input
+          %input.credit_cards__form--input-box{placeholder: "カードの背面４桁もしくは３桁の番号"}
+        .credit_cards__form--input-info
+          = icon('fas','question-circle',class: ".credit_cards__form--input-info-question")
+          カード裏面の番号とは？
+
+      .credit_cards__submit
+        .credit_cards__submit--button
+          次へ進む
+
+  = render "/signup/shered/signup_fotter"
+

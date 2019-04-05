@@ -1,0 +1,2 @@
+module Mypages::LoginsHelper
+end

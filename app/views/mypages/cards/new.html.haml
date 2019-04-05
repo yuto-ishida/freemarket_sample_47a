@@ -1,0 +1,93 @@
+= render "shered/header"
+
+
+- button_titles_main =["マイページ","お知らせ","やることリスト","いいね ! 一覧","出品する","出品した商品 - 出品中","出品した商品 - 取引中","出品した商品 - 売却済み","購入した商品 - 取引中","購入した商品 - 過去の取引","ニュース一覧","評価一覧","ガイド","お問い合わせ"]
+
+- button_titles_mercari = ["売上・振込申請","ポイント"]
+
+- button_titles_setting = ["プロフィール","発送元・お届け先住所変更","お支払い方法","メール/パスワード","本人情報","電話番号の確認","ログアウト"]
+
+- buttons_box = [[nil,button_titles_main],["メルペイ",button_titles_mercari],["設定",button_titles_setting]]
+
+- button_num = 0
+
+.mypage
+  .mypage__sidebar
+    - buttons_box.each do |buttons|
+      .mypage__buttons
+        - if !buttons[0].nil?
+          .mypage__buttons--title
+            = buttons[0]
+        -  buttons[1].each do |title|
+          = link_to do
+            - if button_num == 18 then
+              .mypage__button--main
+                .mypage__button--main-title
+                  = title
+                .mypage__button--main-arrow-icon
+                  = icon('fas','chevron-right')
+            - else
+              .mypage__button
+                .mypage__button--title
+                  = title
+                .mypage__button--arrow-icon
+                  = icon('fas','chevron-right')
+          - button_num += 1
+
+  .mypage__main
+    .card_new
+      .card_new__title
+        クレジットカード情報入力
+      .card_new__content
+        .card_new__content__box
+          .card_new__content__box__card_no
+            .card_new__content__box__card_no__upper
+              %span.card_new__content__box__card_no__upper--title
+                カード番号
+              %span.card_new__content__box__card_no__upper--mark
+                必須
+            %input.card_new__content__box__card_no--textbox{type: "text",placeholder:"半角数字のみ"}
+            .card_new__content__box__card_no__cardlist
+              =image_tag("/mypage_images/card_new/visa.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/master-card.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/saison-card.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/jcb.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/american_express.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/dinersclub.svg/",class: "card_new__content__box__card_no__cardlist--image")
+              =image_tag("/mypage_images/card_new/discover.svg/",class: "card_new__content__box__card_no__cardlist--image")
+          .card_new__content__box__card_no
+            .card_new__content__box__card_no__upper
+              %span.card_new__content__box__card_no__upper--title
+                有効期限
+              %span.card_new__content__box__card_no__upper--mark
+                必須
+
+            .card_new__content__box__day
+              .card_new__content__box__day__box
+                %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
+                = icon('fas','chevron-down',class: "card_new__content__box__day__box--allow-icon")
+              .card_new__content__box__day--right-text
+                月
+            .card_new__content__box__day
+              .card_new__content__box__day__box
+                %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
+                = icon('fas','chevron-down',class: "card_new__content__box__day__box--allow-icon")
+              .card_new__content__box__day--right-text
+                年
+
+
+          .card_new__content__box__card_no
+            .card_new__content__box__card_no__upper
+              %span.card_new__content__box__card_no__upper--title
+                セキュリティコード
+              %span.card_new__content__box__card_no__upper--mark
+                必須
+            %input.card_new__content__box__card_no--textbox{type: "text",placeholder:"カード背面4桁もしくは3桁の番号"}
+            .card_new__content__box__discription
+              = icon('fas','question-circle',class: "card_new__content__box__discription--icon")
+              .card_new__content__box__discription--text
+                カード裏面の番号とは？
+          .card_new__content__box__red-button
+            追加する
+
+= render "shered/fotter"

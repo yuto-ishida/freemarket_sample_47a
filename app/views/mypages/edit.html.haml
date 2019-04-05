@@ -1,38 +1,8 @@
 = render "shered/header"
 
-
-- button_titles_main =["マイページ","お知らせ","やることリスト","いいね ! 一覧","出品する","出品した商品 - 出品中","出品した商品 - 取引中","出品した商品 - 売却済み","購入した商品 - 取引中","購入した商品 - 過去の取引","ニュース一覧","評価一覧","ガイド","お問い合わせ"]
-
-- button_titles_mercari = ["売上・振込申請","ポイント"]
-
-- button_titles_setting = ["プロフィール","発送元・お届け先住所変更","お支払い方法","メール/パスワード","本人情報","電話番号の確認","ログアウト"]
-
-- buttons_box = [[nil,button_titles_main],["メルペイ",button_titles_mercari],["設定",button_titles_setting]]
-
-- button_num = 0
-
 .mypage
-  .mypage__sidebar
-    - buttons_box.each do |buttons|
-      .mypage__buttons
-        - if !buttons[0].nil?
-          .mypage__buttons--title
-            = buttons[0]
-        -  buttons[1].each do |title|
-          = link_to do
-            - if button_num == 16 then
-              .mypage__button--main
-                .mypage__button--main-title
-                  = title
-                .mypage__button--main-arrow-icon
-                  = icon('fas','chevron-right')
-            - else
-              .mypage__button
-                .mypage__button--title
-                  = title
-                .mypage__button--arrow-icon
-                  = icon('fas','chevron-right')
-          - button_num += 1
+  - button_main_number = 16
+  = render "/mypages/shered/header",button_main_number:button_main_number
 
   .mypage__main
     .mypage_edit

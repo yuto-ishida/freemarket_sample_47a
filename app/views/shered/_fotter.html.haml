@@ -8,8 +8,10 @@
         .fotter__main_text
           今すぐ無料ダウンロード！
         = image_tag('/top_images/mercari_icon.png', class: "mercari_box_icon")
-        = image_tag('/top_images/app-store.svg', class: "app_store_icon")
-        = image_tag('/top_images/google-play.svg', class: "google_play_icon")
+        = link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8" do
+          = image_tag('/top_images/app-store.svg', class: "app_store_icon")
+        = link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
+          = image_tag('/top_images/google-play.svg', class: "google_play_icon")
 
   .fotter__links
     .fotter__main
@@ -23,8 +25,10 @@
           .link= link_to "公式ブログ"
           .link= link_to "メルカリロゴ利用ガイドライン"
           .about_mercari__child--logos
-            = icon('fab','twitter', class: "twitter_icon")
-            = icon('fab','facebook', class: "facebook_icon")
+            = link_to "https://twitter.com/mercari_jp" do
+              = icon('fab','twitter', class: "twitter_icon")
+            = link_to "https://www.facebook.com/mercarijp" do
+              = icon('fab','facebook', class: "facebook_icon")
 
           .about_mercari__child--logos
       .fotter__help_guide
@@ -70,8 +74,9 @@
       .fotter__copyright
         ©2019 Meracari
 
-.camera__button
-  出品
-  %br
-  = icon('fas', 'camera',class: "camera_icon")
+= link_to new_top_path do
+  .camera__button
+    出品
+    %br
+    = icon('fas', 'camera',class: "camera_icon")
 

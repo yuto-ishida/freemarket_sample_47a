@@ -1,0 +1,113 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.credit_cards{
+    background: #f5f5f5;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  &__main{
+    @include box(auto,700px);
+    background-color: white;
+    margin: 0 auto;
+    &--title{
+      padding: 32px 16px;
+      @include box(33px,668px);
+      background-color: #fff;
+      font-size: 22px;
+      text-align: center;
+      font-weight: 600;
+      border-bottom: 1px solid #f5f5f5;
+    }
+  }
+  &__forms{
+    padding: 48px 64px 64px;
+  }
+  &__form{
+    @include box(auto,320px);
+    padding-bottom: 40px;
+
+  margin: 0 auto;
+    &--title{
+    display: flex;
+      &-name{
+        font-size: 16px;
+        font-weight: 600;
+      }
+      &-mark-required{
+      @include box(15px,24px);
+      border-radius: 2px;
+      font-size: 12px;
+      padding: 2px 4px;
+      margin-left: 10px;
+      background-color: #ea352d;
+      color: white;
+      line-height: 17px;
+      }
+      &-mark-any{
+      @include box(15px,24px);
+      border-radius: 2px;
+      font-size: 12px;
+      padding: 2px 4px;
+      margin-left: 10px;
+      background-color: #cccrail;
+      color: white;
+      line-height: 17px;
+      }
+    }
+    &--input{
+      display: flex;
+      position: relative;
+      margin-top: 8px;
+      &-box{
+        @include box(28px,286px);
+        padding: 8px 16px 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      &-arrow-icon{
+        position: absolute;
+        top: 15px;
+        left: 90px;
+        font-size: larger;
+        color: #888;
+      }
+      &-date-box{
+        @include box(28px,88px);
+        padding: 8px 16px 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+      &-unit{
+        margin: auto 8px;
+      }
+      &-info{
+        margin-top: 8px;
+        text-align: right;
+        font-size: 14px;
+        color:#0099e8;
+        &-question{
+        }
+      }
+
+    }
+    &--card-icons{
+      margin-top: 8px;
+      display: flex;
+    }
+    &--card{
+      @include box(20px,auto);
+      margin-right: 8px;
+    }
+  }
+  &__submit{
+    &--button{
+        @include box(48px,320px);
+        margin: 0 auto;
+        background-color: red;
+        text-align: center;
+        line-height: 48px;
+        color: #fff;
+    }
+  }
+}
