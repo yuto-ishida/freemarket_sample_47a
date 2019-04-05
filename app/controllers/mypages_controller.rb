@@ -5,11 +5,5 @@ class MypagesController < ApplicationController
 
   def edit
   end
-  
-  def cards
-  end
 
-  def logout
-  end
-  
 end
