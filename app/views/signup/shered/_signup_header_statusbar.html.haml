@@ -1,0 +1,38 @@
+- status_bar_names = ["会員情報","電話番号認証","お届け先住所入力","支払い方法","完了"]
+- status_bar_number = 0
+.signup__status-bars
+  - status_bar_names.each do |status_bar_name|
+    - if status_bar_number == status_bar_main_number && status_bar_number == 0 then
+      .signup__status-bar-main
+        .signup__status-bar--title-main
+          = status_bar_name
+        .signup__status-bar--circle-main
+
+    - elsif status_bar_number != status_bar_main_number && status_bar_number == 0 then
+      .signup__status-bar
+        .signup__status-bar--title
+          = status_bar_name
+        .signup__status-bar--circle-main
+
+    - elsif status_bar_number == status_bar_main_number && status_bar_number != 0 then
+      .signup__status-bar-main
+        .signup__status-bar--title-main
+          = status_bar_name
+        .signup__status-bar--circle-main
+        .signup__status-bar--bar-main
+
+    - elsif status_bar_number < status_bar_main_number && status_bar_number != 0 then
+      .signup__status-bar
+        .signup__status-bar--title
+          = status_bar_name
+        .signup__status-bar--circle-main
+        .signup__status-bar--bar-main
+
+    - elsif status_bar_number > status_bar_main_number && status_bar_number != 0 then
+      .signup__status-bar
+        .signup__status-bar--title
+          = status_bar_name
+        .signup__status-bar--circle
+        .signup__status-bar--bar
+
+    - status_bar_number += 1
