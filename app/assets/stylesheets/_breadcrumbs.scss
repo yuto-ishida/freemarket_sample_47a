@@ -1,0 +1,29 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+.pankuzu{
+  @include box(49px,auto);
+  background-color:#fff;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  &__arrow-icon{
+    margin:0 8px;
+    font-size:9px;
+    color:#888;
+  }
+}
+.breadcrumbs{
+  @include box(27px,1020px);
+  margin:17px auto 16px;
+  line-height:16px;
+  a:hover{
+    color:#333;
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}
+.current{
+  font-size:14px;
+  font-weight: 600;
+}
