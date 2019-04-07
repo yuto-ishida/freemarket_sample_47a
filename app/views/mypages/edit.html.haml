@@ -1,0 +1,22 @@
+= render "shered/header"
+.pankuzu
+  - breadcrumb :edit_mypage
+  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+.mypage
+  - button_main_number = 16
+  = render "/mypages/shered/header",button_main_number:button_main_number
+
+  .mypage__main
+    .mypage_edit
+      .mypage_edit__title
+        プロフィール
+      .mypage_edit__name
+        = image_tag('/top_images/mypage_image.jpg', class: 'mypage_edit__name--icon')
+        %input.mypage_edit__name-input{value:"user_name"}
+      .mypage_edit__text
+
+        %textarea.mypage_edit__text--input{type: "textarea",placeholder:"例) こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。 気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
+        .mypage_edit__submit
+          変更する
+
+= render "shered/fotter"

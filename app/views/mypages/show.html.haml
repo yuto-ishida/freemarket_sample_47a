@@ -1,0 +1,65 @@
+= render "shered/header"
+.pankuzu
+  - breadcrumb :mypages
+  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+.mypage
+  - button_main_number = 0
+  = render "/mypages/shered/header",button_main_number:button_main_number
+
+  .mypage__main
+    .mypage__top
+      .mypage__top--information
+        = image_tag('/top_images/mypage_image.jpg', class: 'mypage__top--information-mypage_icon')
+        .mypage__top--information-name
+          test_name
+        .mypage__top--information-evaluation_Exhibit
+          .mypage__top--information-evaluation
+            評価   0
+          .mypage__top--information-Exhibit
+            出品数   0
+      .mypage__top--select-button
+        .mypage__top--select-button--right
+          .mypage__top--select-button--right-text
+            お知らせ
+        .mypage__top--select-button--left
+          .mypage__top--select-button--left-text
+            やることリスト
+
+      - 5.times do
+        .mypage__notice-box
+          .mypage__notice-box_list
+            .mypage__notice-box_article
+              = image_tag("/mypage_images/mercari_profile.png",class: "mypage__notice-box_article-icon")
+              .mypage__notice-box_article-middle-box
+                .mypage__notice-box_article-text
+                  全額ポイントバック新生活応援キャンペーン実施中！
+                .mypage__notice-box_article_time
+                  = icon('far','clock',class: "mypage__notice-box_article-text")
+                  1日前
+              .mypage__notice-box_article_arrow-icon-box
+                = icon('fas','chevron-right',class: "mypage__notice-box_arrow-icon")
+
+      .mypage__notice-all-view
+        .mypage__notice-all-view-button
+          一覧を見る
+
+      .mypage__top--do-list
+        .mypage__top--do-list_list
+
+    .mypage__bottom--middle-space
+    .mypage__bottom--title
+      購入した商品
+    .mypage__bottom--select-button
+      .mypage__bottom--select-button--right
+        .mypage__bottom--select-button--right-text
+          取引中
+      .mypage__bottom--select-button--left
+        .mypage__bottom--select-button--left-text
+          過去の取引
+    .mypage__bottom--during-trading-box
+      取引中の商品がありません
+
+    .mypage__bottom--past-transactions
+      過去に取引した商品がありません
+
+= render "shered/fotter"

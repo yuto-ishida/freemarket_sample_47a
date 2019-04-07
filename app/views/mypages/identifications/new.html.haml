@@ -1,0 +1,87 @@
+= render "shered/header"
+.pankuzu
+  - breadcrumb :new_mypages_identification
+  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+
+.mypage
+  - button_main_number = 20
+  = render "/mypages/shered/header",button_main_number:button_main_number
+  .mypage__main
+    .mypage__identifications
+      .mypage__identifications--title
+        本人情報の登録
+      .mypage__identifications--form
+        .mypage__identifications--form-info
+          お客様の本人情報をご登録ください。
+          %br
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+          .mypage__identifications--form-info-link
+            =link_to do
+              本人確認書類のアップロードについて
+              = icon('fas','chevron-right')
+        .mypage__identifications--form-name
+          .mypage__identifications--form-name-title
+            .mypage__identifications--child-title
+              お名前
+          .mypage__identifications--form-name-value
+            user_name
+        .mypage__identifications--form-name-kana
+          .mypage__identifications--form-name-kana-title
+            .mypage__identifications--child-title
+              お名前カナ
+          .mypage__identifications--form-name-kana-value
+            ユーザーネーム
+        .mypage__identifications--form-birthday
+          .mypage__identifications--form-birthday-title
+            .mypage__identifications--child-title
+              生年月日
+          .mypage__identifications--form-birthday-value
+            2000/1/1
+        .mypage__identifications--form-post-code
+          .mypage__identifications--form-post-code-title
+            .mypage__identifications--child-title
+              郵便番号
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-post-code-value{placeholder: "例) 1234567"}
+        .mypage__identifications--form-prefectures
+          .mypage__identifications--form-prefectures-title
+            .mypage__identifications--child-title
+              都道府県
+            .mypage__identifications--child-mark
+              任意
+          .mypage__identifications--form-prefectures-value
+            %input.mypage__identifications--form-prefectures-value-input{placeholder: "--"}
+            = icon('fas','chevron-down',class: "mypage__identifications--form-prefectures-value-icon")
+        .mypage__identifications--form-cities
+          .mypage__identifications--form-cities-title
+            .mypage__identifications--child-title
+              市町村
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-cities-value{placeholder: "例) 横浜市緑区"}
+        .mypage__identifications--form-address
+          .mypage__identifications--form-address-title
+            .mypage__identifications--child-title
+              番地
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-address-value{placeholder: "例) 青山1-1-1"}
+        .mypage__identifications--form-building_name
+          .mypage__identifications--form-building_name-title
+            .mypage__identifications--child-title
+              建物名
+            .mypage__identifications--child-mark
+              任意
+          %input.mypage__identifications--form-building_name-value{placeholder: "例) 柳ビル103"}
+        .mypage__identifications--form-submit
+          .mypage__identifications--form-submit-button
+            登録する
+        .mypage__identifications--form-about
+          .mypage__identifications--form-about-link
+            = link_to do
+              本人情報の登録について
+              = icon('fas','chevron-right')
+
+
+= render "shered/fotter"

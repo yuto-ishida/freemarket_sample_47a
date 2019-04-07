@@ -1,0 +1,174 @@
+@mixin box($height,$width){
+  height: $height;
+  width: $width;
+}
+
+.buy{
+  @include box(auto,700px);
+  background-color: white;
+  margin: 0 auto;
+  &__wrapper{
+    background: #f5f5f5;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  }
+  &__header{
+    position: relative;
+    @include box(129px,100%);
+    .mercari_color_icon{
+      position: absolute;
+      top: 40px;
+      right:  calc(50% - 92px);
+      @include box(49px,185px);
+      margin: 0 auto;
+    }
+    .mercari_color_icon:hover{
+      opacity:0.5;
+    }
+  }
+
+  &__title{
+    @include box(33px,675px);
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 32px 16px;
+  }
+
+  &__line{
+    border: 1px solid #f5f5f5;
+  }
+
+  &__content{
+    @include box(420px,700px);
+    padding: 25px;
+    text-align:center;
+
+    &--innner{
+      max-width: 320px;
+    }
+
+    &__image{
+      @include box(111px,148px);
+    }
+
+  }
+  &__item-name{
+    margin: 8px 0 0;
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+
+  &__price{
+    margin: 8px 0 15px;
+    font-size: 28px;
+    line-height: 1.5;
+  }
+  &__shipping-fee{
+    font-size: 16px;
+    display: inline-block;
+  }
+  &__point--box{
+    @include box(48px,320px);
+    background: #ccc;
+    margin: 0 auto;
+  }
+  &__point{
+    padding: 16px;
+    font-size:14px;
+  }
+  &__payment-box{
+    @include box(auto,320px);
+    margin: 8px auto;
+    font-weight:600;
+    display: flex;
+    font-size:28px;
+    &__text{
+    }
+    &__price{
+      margin: auto 0 auto auto;
+    }
+  }
+
+  &__has-error-text{
+    @include box(auto,320px);
+    margin: 15px auto 18px;
+    font-size: 14px;
+    color: red;
+  }
+  &__buy-botton{
+    @include box(48px,320px);
+    background: #888;
+    margin: 0 auto;
+    line-height: 48px;
+    color: #fff;
+  }
+  &__content2{
+    @include box(auto,700px);
+    padding: 25px;
+    &__address{
+      @include box(83.61px,320px);
+      margin: 0 auto;
+      font-size:14px;
+      &__top{
+        left:0;
+        width:100%;
+        font-weight:bold;
+      }
+      &__center{
+        margin-top:8px;
+        width:100%;
+
+      }
+      &__button{
+        margin-top:8px;
+        text-align:right;
+
+        &--text{
+          color: #0099e8;
+        }
+        &--icon{
+          color: #0099e8;
+        }
+      }
+      &__button:hover{
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+  }
+  &__content3{
+    @include box(auto,700px);
+    padding: 25px;
+    &__payment{
+      @include box(83.61px,320px);
+      margin: 0 auto;
+      font-size: 14px;
+      &__top{
+        left:0;
+        width:100%;
+        font-weight:bold;
+      }
+      &__center{
+      margin-top:8px;
+        width:100%;
+
+      }
+      &__button{
+        margin-top:8px;
+        text-align:right;
+
+        &--text{
+          color: #0099e8;
+        }
+        &--icon{
+          color: #0099e8;
+        }
+      }
+      &__button:hover{
+        opacity: 0.5;
+        text-decoration: underline;
+      }
+    }
+  }
+}

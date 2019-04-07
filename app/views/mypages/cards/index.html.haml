@@ -1,0 +1,32 @@
+= render "shered/header"
+.pankuzu
+  - breadcrumb :mypages_cards
+  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+.mypage
+  - button_main_number = 18
+  = render "/mypages/shered/header",button_main_number:button_main_number
+  .mypage__main
+    .mypage_card
+      .mypage_card__title
+        支払い方法
+    .mypage_card__content
+      .mypage_card__content__name
+        クレジットカード一覧
+      .mypage_card__content__add-button
+        = link_to new_mypages_card_path do
+          %span.mypage_card__content__add-button--icon
+            = icon('fas','credit-card')
+          %span.mypage_card__content__add-button--text
+            クレジットカードを追加する
+    .mypage_card__payment
+      .mypage_card__payment__box
+        .mypage_card__payment__box__button
+          =link_to new_top_path do
+            %span.mypage_card__payment__box__button--text
+              支払い方法について
+            %i.mypage_card__payment__box__button--icon
+              = icon('fas','chevron-right')
+
+
+
+= render "shered/fotter"
