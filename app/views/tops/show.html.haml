@@ -21,26 +21,22 @@
             %td.tops_show__main--exhibitor-right
               =link_to "bunbun","",class: "exhibitor__right--name"
               .expression
-                .smail
-                  %i.fas.fa-laugh.fa-lg
-                  %span 373
-                .usually
-                  %i.fas.fa-meh.fa-lg
-                  %span 11
-                .sad
-                  %i.fas.fa-frown.fa-lg
-                  %span 0
+                = icon('fas','laugh', class: "smail")
+                %span 373
+                = icon('fas', 'meh', class: "usually")
+                %span 11
+                = icon('fas', 'frown', class: "sad")
+                %span 0
           %tr.tops_show__main--category
             %th.tops_show__main--category-left
               カテゴリー
             %td.tops_show__main--category-right
-              = link_to " ",class: "tops_show__main--category-first" do
-                自転車・オートバイ
-                %br
-              = link_to " ",class: "tops_show__main--category-second" do
+              = link_to "自転車・オートバイ","",class: "tops_show__main--category-first"
+              %br
+              = link_to "",class: "tops_show__main--category-second" do
                 %i.fas.fa-chevron-right
                 オートバイパーツ
-                %br
+              %br
               = link_to "",class: "tops_show__main--category-third"do
                 %i.fas.fa-chevron-right
                 メンテンナス
@@ -69,9 +65,7 @@
         %span.tops_show__main--tax （税込）
         %span.tops_show__main--fee 送料込み
 
-      = link_to do
-        .tops_show__main--purchase
-          購入画面に進む
+      = link_to "購入画面に進む","",class: "tops_show__main--purchase"
       .tops_show__main--text
         .tops_show__main--description
           ベルツァー  スピーダー ハンドル  7752
@@ -105,18 +99,18 @@
 
     .tops_show__message
       .tops_show__message--coteiner
-        .tops_show__message--coment
+        .tops_show__message--comment
           .tops_show__message--item
             .tops_show__message--grafic
               .tops_show__message--messagebody-main
-                = link_to "",class: "tops_show__message--grafic-image" do
-                  = image_tag("/top_images/mercari_icon.png", :size =>'40x40')
+                = link_to mypage_path do
+                  = image_tag("/top_images/mercari_icon.png",class: "tops_show__message--grafic-image")
                 .tops_show__message--messagebody-a
                   %figcaption.bold ❁ ぴょんぴょん ❁
                   .tops_show__message--messageboby
                     .tops_show__message--messageboby-text
-                      .tops_show__message--messageboby-text-coment
-                        .tops_show__message--messageboby-text-coment2
+                      .tops_show__message--messageboby-text-comment
+                        .tops_show__message--messageboby-text-comment2
                           コメント失礼します(＞＜)購入希望ですが、3400円はキツイでしょうか？(＞＜)
                         .tops_show__message--messageboby-text-clock
                           %i.far.fa-clock
@@ -299,14 +293,4 @@
                 = icon('far','heart', class: "product__good_icon")
                 .product__like_num
                   12
-
-
-
-
-
-
-
-
-
-
 = render "shered/fotter"
