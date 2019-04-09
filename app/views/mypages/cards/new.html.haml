@@ -1,5 +1,7 @@
 = render "shered/header"
-
+.pankuzu
+  - breadcrumb :new_mypages_card
+  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
 .mypage
   - button_main_number = 18
   = render "/mypages/shered/header",button_main_number:button_main_number
