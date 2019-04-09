@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20190406055836) do
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                              null: false
-    t.text     "description",         limit: 65535
+    t.text     "description",         limit: 65535, null: false
     t.integer  "user_id",                           null: false
     t.integer  "condition_id",                      null: false
     t.integer  "shipping_burden_id",                null: false
@@ -146,7 +146,6 @@ ActiveRecord::Schema.define(version: 20190406055836) do
     t.integer  "prefecture_id",                     null: false
     t.integer  "date_of_shipment_id",               null: false
     t.integer  "price",                             null: false
-    t.integer  "credit"
     t.integer  "status_id",                         null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
