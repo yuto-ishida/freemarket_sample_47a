@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :items, :dependent => :destroy
   has_many :credits, :dependent => :destroy
-  has_many :contact_informations, :dependent => :destroy
+  has_many :ContactInformations, :dependent => :destroy
   has_many :informations
   has_many :points, :dependent => :destroy
   has_many :evaluations

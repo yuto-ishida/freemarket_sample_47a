@@ -1,4 +1,4 @@
 class BrandItem < ApplicationRecord
-  has_many :items
-  has_many :brands
+  belongs_to :item
+  belongs_to :brand
 end
