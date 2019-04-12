@@ -1,6 +1,6 @@
 class Mypages::LogoutsController < ApplicationController
   before_action :authenticate_user!
-    before_action :set_category, only:  :index
+  before_action :set_category, only:  :index
 
 
   def index
