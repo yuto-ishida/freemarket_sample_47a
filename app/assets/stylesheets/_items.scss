@@ -62,12 +62,22 @@ header{
   line-height: 36px;
   position: relative;
   margin-top: 8px;
+  display: flex;
+  z-index: 0;
+
+  }
+
+  &--category{
+
   }
   &__list_tag_icon{
     color: red;
   }
   &__category--search{
     font-weight: 600;
+  }
+  &--brand{
+
   }
   &__tag_icon{
     padding-left:16px;
@@ -147,6 +157,58 @@ header{
   }
 }
 
+.header__category_brand{
+    @include box(0px,1023px);
+    margin: 0 auto;
+    position: relative;
+  &--box{
+    position: absolute;
+    top:-5px;
+    left:0;
+    background-color: white;
+    z-index: 100;
+    display: flex;
+    font-size: 14px;
+
+    a{
+      color: black;
+    }
+  }
+  &--box-parents{
+    @include box(616px,194px);
+    border: 1px solid #eee;
+    width: 224px;
+    display: none;
+    &-button{
+      @include box(44px,192px);
+      padding: 0 16px;
+      line-height: 44px;
+    }
+  }
+  &--box-child{
+    @include box(616px,194px);
+    border: 1px solid #eee;
+    width: 224px;
+    display: none;
+    &-button{
+      @include box(30px,192.5px);
+      padding: 0 16px;
+      line-height: 30px;
+    }
+  }
+  &--box-grandchild{
+    @include box(616px,194px);
+    border: 1px solid #eee;
+    width: 320px;
+    display: none;
+    &-button{
+      @include box(30px,288px);
+      padding: 0 16px;
+      line-height: 30px;
+    }
+  }
+
+}
 .first_slide{
   background: url("/top_images/first_slide_image.png");
   height: 390px;

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "items#index"
   resources :items, only: [:new, :create, :edit, :update, :destroy, :show]
   resources :brands, only: :index
-  resources :categories, only: :index
+  resources :categories, only: [:index ,:show]
   namespace :mypages do
     resources :identifications, only: [:new, :create]
     resources :logins, only: :index
