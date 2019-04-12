@@ -18,12 +18,13 @@ end
 CSV.foreach('db/data_reading_files/users.csv') do |row|
   User.create(:email => row[0],:password => row[1],:password_confirmation => row[1])
 end
-CSV.foreach('db/data_reading_files/category.csv') do |row|
-  Category.create(:name => row[0])
-end
 CSV.foreach('db/data_reading_files/item_size.csv') do |row|
   ItemSize.create(:name => row[0])
 end
-CSV.foreach('db/data_reading_files/brand.csv') do |row|
+CSV.foreach('db/data_reading_files/brand_result.csv') do |row|
   Brand.create(:name => row[0])
 end
+CSV.foreach('db/data_reading_files/category_result.csv') do |row|
+  Category.create(:name => row[0],:ancestry => row[1])
+end
+1
