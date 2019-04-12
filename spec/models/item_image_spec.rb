@@ -4,7 +4,6 @@ RSpec.describe ItemImage, type: :model do
   describe '#create' do
     context 'can save' do
       it 'is valid with main' do
-        binding.pry
         expect(build(:item_image,main: nil)).to be_valid
       end
     end
