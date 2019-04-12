@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!,only: [:new,:create]
   before_action :set_category, only: [:index, :show]
+
   def index
   end
 
@@ -20,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   private
