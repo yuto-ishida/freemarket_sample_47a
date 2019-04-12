@@ -7,10 +7,15 @@
         %input.header__search--box{ placeholder: "何かお探しですか？" }
         = link_to icon('fas','search', class: "header__search--icon")
       .header__buttons
-        = icon('fas','list',class: "header__list_tag_icon")
-        = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
-        = icon('fas','tag',class: "header__tag_icon")
-        = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
+
+        .header__buttons--category.header__mouse_over
+          = link_to categories_path do
+            = icon('fas','list',class: "header__list_tag_icon")
+            = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
+        .haeader__buttons--brand
+          = link_to brands_path do
+            = icon('fas','tag',class: "header__tag_icon")
+            = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
         .header__right
           - if user_signed_in?
             = link_to mypages_path, class: 'header__notice' do
@@ -34,3 +39,28 @@
             = link_to signup_index_path do
               .header__signin
                 新規会員登録
+.header__category_brand
+  .header__category_brand--box.header__mouse_over
+    .header__category_brand--box-parents
+      - @category.where(ancestry: nil).each do |category|
+        = link_to category_path(category) do
+          .header__category_brand--box-parents-button{value: category.id}
+            = category.name
+    - @category.where(ancestry: nil).each do |category_parent|
+      - if @category.find_by(ancestry:"#{category_parent.id}") != nil
+        .header__category_brand--box-child{value: category_parent.id }
+          - @category.where(ancestry: category_parent.id).each do |category|
+            = link_to category_path(category) do
+              .header__category_brand--box-child-button{value: "#{category_parent.id}/#{category.id}" }
+                = category.name
+
+    - @category.where(ancestry: nil).each do |category_parent|
+      - @category.where(ancestry: category_parent.id).each do |category_child|
+        - if @category.find_by(ancestry:"#{category_parent.id}/#{category_child.id}") != nil
+          .header__category_brand--box-grandchild{value: "#{category_parent.id}/#{category_child.id}" }
+            - @category.where(ancestry: "#{category_parent.id}/#{category_child.id}").each do |category|
+              = link_to category_path(category) do
+                .header__category_brand--box-grandchild-button
+                  = category.name
+
+
