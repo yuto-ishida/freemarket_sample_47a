@@ -13,3 +13,4 @@ require 'rails_helper'
 RSpec.describe ItemImagesHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end
+system("rake db:seed RAILS_ENV=test")
