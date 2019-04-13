@@ -24,7 +24,6 @@ end
 CSV.foreach('db/data_reading_files/brand_result.csv') do |row|
   Brand.create(:name => row[0])
 end
-
 CSV.foreach('db/data_reading_files/category_result.csv') do |row|
   Category.create(:name => row[0],:ancestry => row[1])
 end
