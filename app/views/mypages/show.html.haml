@@ -1,7 +1,7 @@
 = render "shered/header"
 .pankuzu
   - breadcrumb :mypages
-  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+  = breadcrumbs separator: "<text class='fas fa-chevron-right pankuzu__arrow-icon'></text>"
 .mypage
   - button_main_number = 0
   = render "/mypages/shered/header",button_main_number:button_main_number
@@ -34,10 +34,10 @@
                 .mypage__notice-box_article-text
                   全額ポイントバック新生活応援キャンペーン実施中！
                 .mypage__notice-box_article_time
-                  = icon('far','clock',class: "mypage__notice-box_article-text")
+                  .far.fa-clock.mypage__notice-box_article-text
                   1日前
               .mypage__notice-box_article_arrow-icon-box
-                = icon('fas','chevron-right',class: "mypage__notice-box_arrow-icon")
+                .fas.fa-chevron-right.mypage__notice-box_arrow-icon
 
       .mypage__notice-all-view
         .mypage__notice-all-view-button
