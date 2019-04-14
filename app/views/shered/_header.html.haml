@@ -5,25 +5,26 @@
         = link_to root_path do
           = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
         %input.header__search--box{ placeholder: "何かお探しですか？" }
-        = link_to icon('fas','search', class: "header__search--icon")
+        = link_to do
+          .fas.fa-search.header__search--icon
       .header__buttons
 
         .header__buttons--category.header__mouse_over
           = link_to categories_path do
-            = icon('fas','list',class: "header__list_tag_icon")
+            .fas.fa-list.header__list_tag_icon
             = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
         .haeader__buttons--brand
           = link_to brands_path do
-            = icon('fas','tag',class: "header__tag_icon")
+            .fas.fa-tag.header__tag_icon
             = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
         .header__right
           - if user_signed_in?
             = link_to mypages_path, class: 'header__notice' do
-              = icon('far','bell', class: 'header__bell_icon')
+              .far.fa-bell.header__bell_icon
               .header__notice--title
                 お知らせ
             = link_to mypages_path, class: 'header__to_do_list' do
-              = icon('fas','check', class: 'header__chack_icon')
+              .fas.fa-check.header__chack_icon
               .header__to_do_list_title
                 やることリスト
 
