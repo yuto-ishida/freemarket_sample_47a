@@ -25,5 +25,5 @@ Rails.application.routes.draw do
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy,:card]
   resources :buys, only: :index
   resources :item_images, only: [:create, :destroy]
-
+  resources :searches, only: [:index]
 end
