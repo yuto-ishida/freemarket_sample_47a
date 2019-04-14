@@ -20,6 +20,11 @@ RSpec.describe ItemsController, type: :controller do
     end
   end
 
+  describe 'GET #show' do
+    it "renders the :show template" do
+      get :show, params:{id: 1}
+      expect(response).to render_template :show
+
   describe 'DELETE #destroy' do
     it "renders the :index template" do
       get :index
@@ -27,3 +32,4 @@ RSpec.describe ItemsController, type: :controller do
     end
   end
 end
+
