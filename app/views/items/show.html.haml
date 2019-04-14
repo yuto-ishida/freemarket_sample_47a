@@ -37,7 +37,7 @@
           %tr.tops_show__main--bland
             %th.tops_show__main--bland-left ブランド
             %td.tops_show__main--bland-right
-              = link_to "#{@brand.name}","",class: "tops_show__main--bland-right-name"
+              = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
           %tr.tops_show__main--product-status
             %th.tops_show__main--product-status-left 商品の状態
             %td.tops_show__main--product-status-right
@@ -60,6 +60,7 @@
               = @item.date_of_shipment.name
       .tops_show__main--money
         %span.tops_show__main--price
+          ¥
           = number_with_delimiter(@item.price)
         %span.tops_show__main--tax （税込）
         %span.tops_show__main--fee 送料込み
