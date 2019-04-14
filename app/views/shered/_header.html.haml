@@ -4,9 +4,10 @@
       .header__search
         = link_to root_path do
           = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
-        %input.header__search--box{ placeholder: "何かお探しですか？" }
-        = link_to do
-          .fas.fa-search.header__search--icon
+        = form_tag(searches_path, method: :get,class: "header__search--box") do
+          = text_field_tag :keyword ,"",class:"header__search--box-input", placeholder: "何かお探しですか？"
+          = button_tag type: "submit",class:" header__search--icon" do
+            <i class="fa fa-search"></i>
       .header__buttons
 
         .header__buttons--category.header__mouse_over

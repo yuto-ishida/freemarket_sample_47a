@@ -39,11 +39,15 @@ header{
   }
   &__search--box{
     @include box(32px,100%);
-    border-radius: 1px;
-    padding: 8px;
-    border: 1px solid #e6e6e6;
-    position: relative;
-    background: #e6e6e6;
+
+    &-input{
+      @include box(32px,100%);
+      border-radius: 1px;
+      padding: 8px;
+      border: 1px solid #e6e6e6;
+      position: relative;
+      background: #e6e6e6;
+    }
   }
   &__search--icon{
       position: absolute;
