@@ -1,5 +1,5 @@
 class ItemImagesController < ApplicationController
-
+  before_action :authenticate_user!
   def create
     @itemimage = ItemImage.create(image_params)
       respond_to do |format|

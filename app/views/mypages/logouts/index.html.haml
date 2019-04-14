@@ -1,7 +1,7 @@
 = render "shered/header"
 .pankuzu
   - breadcrumb :mypages_logouts
-  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+  = breadcrumbs separator: "<text class='fas fa-chevron-right pankuzu__arrow-icon'></text>"
 .mypage
   - button_main_number = 22
   = render "/mypages/shered/header",button_main_number:button_main_number

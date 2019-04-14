@@ -1,4 +1,3 @@
-
 = render "shered/header"
 
 .top-main
@@ -33,150 +32,208 @@
       .pickup__subtitle
         レディース 新着アイテム
       .pickup__products
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
+        - @items_category_women.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
-
+  .top-products
+    .pickup
+      .pickup__subtitle
+        メンズ 新着アイテム
       .pickup__products
+        - @items_category_men.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
+  .top-products
+    .pickup
+      .pickup__subtitle
+        ベビー・キッズ 新着アイテム
+      .pickup__products
+        - @items_category_baby.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
+  .top-products
+    .pickup
+      .pickup__subtitle
+        コスメ・香水・美容 新着アイテム
+      .pickup__products
+        - @items_category_cosmetic.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
+  .top-products
+    .pickup
+      .pickup__title
+        ピックアップブランド
+      .pickup__subtitle
+        シャネル 新着アイテム
+      .pickup__products
+        - @items_brand_chanel.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
+
+  .top-products
+    .pickup
+      .pickup__subtitle
+        ルイ ヴィトン 新着アイテム
+      .pickup__products
+        - @items_brand_louis_vuitton.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
+
+  .top-products
+    .pickup
+      .pickup__subtitle
+        シュプリーム 新着アイテム
+      .pickup__products
+        - @items_brand_supreme.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
+      .pickup__show-all
+        = link_to "すべての商品を見る", categories_path,class: "show-all__button"
+
+  .top-products
+    .pickup
+      .pickup__subtitle
+        ナイキ 新着アイテム
+      .pickup__products
+        - @items_brand_nike.each do |item|
+          .product
+            .product__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .product__body
+              .product__name
+                = item.name
+                .product__name_linear
+              .product__price_and_like
+                .product__prices
+                  .product__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .product__tax
+                    (税込)
+                .product__like
+                  .far.fa-heart.product__good_icon
+                  .product__like_num
+                    12
 
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"

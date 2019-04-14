@@ -1,0 +1,107 @@
+= render "shered/header"
+
+.search
+  .search__main
+    .search__search_bar
+      .search__search_bar--sort
+        .search__search_bar--sort-input
+        .fas.fa-chevron-down.search__search_bar--sort-allow_icon
+      .search__search_bar--detailed_search
+        .search__search_bar--detailed_search-title
+          詳細検索
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-plus.search__search_bar--detailed_search-sub-title-icon
+            キーワードを追加する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-list.search__search_bar--detailed_search-sub-title-icon
+            カテゴリーを選択する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-tag.search__search_bar--detailed_search-sub-title-icon
+            ブランド名から探す
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .far.fa-square.search__search_bar--detailed_search-sub-title-icon
+            サイズを指定する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-funnel-dollar.search__search_bar--detailed_search-sub-title-icon
+            価格
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
+            .search__search_bar--detailed_search-input-range-boxs
+              .search__search_bar--detailed_search-input-range-box
+              .search__search_bar--detailed_search-input-range-icon ~
+              .search__search_bar--detailed_search-input-range-box
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-star.search__search_bar--detailed_search-sub-title-icon
+            商品の状態
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-truck.search__search_bar--detailed_search-sub-title-icon
+            送料の負担
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-shopping-cart.search__search_bar--detailed_search-sub-title-icon
+            販売状況
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+
+    .search__result
+      - if @items.empty?
+        .search__result--title
+          検索結果 0件
+        .search__result-description
+          該当する商品が見つかりません。商品は毎日増えていますので、これからの出品に期待してください。
+      - else
+        .search__result--title
+          検索結果 1-
+          = @items.length
+          件
+
+      .search__result--boxs
+        - @items.each do |item|
+          .search__result--box
+            .search__image
+              = image_tag(item.item_images.first.image.url, class: "test_image")
+            .search__body
+              .search__name
+                = item.name
+                .search__name_linear
+              .search__price_and_like
+                .search__prices
+                  .search__price
+                    ¥ #{number_with_delimiter(item.price)}
+                  .search__tax
+                    (税込)
+                .search__like
+                  .far.fa-heart.search__good_icon
+                  .search__like_num
+                    12
+
+= render "shered/fotter"
+
