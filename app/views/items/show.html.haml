@@ -21,11 +21,11 @@
             %td.tops_show__main--exhibitor-right
               =link_to "bunbun","",class: "exhibitor__right--name"
               .expression
-                = icon('fas','laugh', class: "smail")
+                .fas.fa-laugh.smail
                 %span 373
-                = icon('fas', 'meh', class: "usually")
+                .fas.fa-meh.usually
                 %span 11
-                = icon('fas', 'frown', class: "sad")
+                .fas.fa-frown.sad
                 %span 0
           %tr.tops_show__main--category
             %th.tops_show__main--category-left
@@ -163,7 +163,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 
@@ -181,7 +181,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 
@@ -199,7 +199,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 
@@ -217,7 +217,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 
@@ -237,7 +237,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
         .product
@@ -254,25 +254,7 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 
@@ -290,7 +272,25 @@
                 .product__tax
                   (税込)
               .product__like
-                = icon('far','heart', class: "product__good_icon")
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
                 .product__like_num
                   12
 = render "shered/fotter"

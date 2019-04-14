@@ -35,7 +35,6 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'font-awesome-sass', '5.2.0'
 gem 'devise'
 gem 'active_hash'
 gem 'pry-rails'

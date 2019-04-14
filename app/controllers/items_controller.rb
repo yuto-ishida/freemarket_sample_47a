@@ -1,7 +1,31 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!,only: [:new,:create]
   before_action :set_category, only: [:index, :show]
+
   def index
+    @category_women = Category.find(1)
+    @items_category_women = @category_women.items.order("created_at DESC").limit(4)
+
+    @category_men = Category.find(2)
+    @items_category_men = @category_men.items.order("created_at DESC").limit(4)
+
+    @category_baby = Category.find(3)
+    @items_category_baby = @category_baby.items.order("created_at DESC").limit(4)
+
+    @category_cosmetic = Category.find(7)
+    @items_category_cosmetic = @category_cosmetic.items.order("created_at DESC").limit(4)
+
+    @brand_chanel = Brand.find(29)
+    @items_brand_chanel = @brand_chanel.items.order("created_at DESC").limit(4)
+
+    @brand_louis_vuitton = Brand.find(30)
+    @items_brand_louis_vuitton = @brand_louis_vuitton.items.order("created_at DESC").limit(4)
+
+    @brand_supreme = Brand.find(31)
+    @items_brand_supreme = @brand_supreme.items.order("created_at DESC").limit(4)
+
+    @brand_nike = Brand.find(32)
+    @items_brand_nike = @brand_nike.items.order("created_at DESC").limit(4)
   end
 
   def new
@@ -20,7 +44,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-
   end
 
   private

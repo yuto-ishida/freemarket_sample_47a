@@ -1,7 +1,7 @@
 = render "shered/header"
 .pankuzu
   - breadcrumb :new_mypages_identification
-  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+  = breadcrumbs separator: "<text class='fas fa-chevron-right pankuzu__arrow-icon'></text>"
 
 .mypage
   - button_main_number = 20
@@ -52,7 +52,7 @@
               任意
           .mypage__identifications--form-prefectures-value
             %input.mypage__identifications--form-prefectures-value-input{placeholder: "--"}
-            = icon('fas','chevron-down',class: "mypage__identifications--form-prefectures-value-icon")
+            .fas.fa-chevron-down.mypage__identifications--form-prefectures-value-icon
         .mypage__identifications--form-cities
           .mypage__identifications--form-cities-title
             .mypage__identifications--child-title
@@ -81,7 +81,7 @@
           .mypage__identifications--form-about-link
             = link_to do
               本人情報の登録について
-              = icon('fas','chevron-right')
+              .fas.fa-chevron-right
 
 
 = render "shered/fotter"
