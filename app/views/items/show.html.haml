@@ -67,8 +67,8 @@
       - if user_signed_in? && current_user.id == @item.user_id
         = link_to "削除","/items/#{@item.id}",method: "DELETE",class: "tops_show__main--purchase"
       - else
-        = link_to "購入画面に進む","/buys",class: "tops_show__main--purchase"
-        
+        = link_to "購入画面に進む", buys_path,class: "tops_show__main--purchase"
+
       .tops_show__main--text
         .tops_show__main--description
           = @item.description
@@ -113,11 +113,11 @@
 
     %ul.tops_show__next
       %li.tops_show__next--left
-        = link_to "#{@item.id-1}",class: "tops_show__next--left-side" do
+        = link_to "",class: "tops_show__next--left-side" do
           %i.fas.fa-chevron-left
           NYヤンキースユニフォーム
       %li.tops_show__next--right
-        = link_to "#{@item.id+1}",class: "tops_show__next--right-side" do
+        = link_to "",class: "tops_show__next--right-side" do
           LAドジャースユニフォーム
           %i.fas.fa-chevron-right
 
