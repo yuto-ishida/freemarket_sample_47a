@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+
   end
 
   def new
@@ -16,6 +17,8 @@ class ItemsController < ApplicationController
       render :new
     end
   end
+
+
 
   private
   def item_params

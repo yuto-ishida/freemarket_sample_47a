@@ -9,7 +9,8 @@ Rails.application.routes.draw do
     resources :identifications, only: [:new, :create]
     resources :logins, only: :index
     resources :logouts, only: :index
-    resources :cards, only: [:index,:new]
+    resources :cards, only: [:index,:new,:create]
+
   end
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
   resources :signup, only: [:index]
@@ -23,7 +24,11 @@ Rails.application.routes.draw do
     resources :credit_cards, only: [:new, :create]
   end
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy,:card]
-  resources :buy, only: :index
+  resources :buys, only: :index do
+    collection do
+      post 'pay' => 'buys#pay'
+    end
+  end
   resources :item_images, only: [:create, :destroy]
 
 end
