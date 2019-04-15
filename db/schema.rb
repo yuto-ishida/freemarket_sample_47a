@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190406055836) do
+ActiveRecord::Schema.define(version: 20190415101842) do
 
   create_table "brand_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id",   null: false
@@ -206,6 +206,15 @@ ActiveRecord::Schema.define(version: 20190406055836) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -249,4 +258,5 @@ ActiveRecord::Schema.define(version: 20190406055836) do
   add_foreign_key "messages", "users"
   add_foreign_key "points", "items"
   add_foreign_key "points", "users"
+  add_foreign_key "sns_credentials", "users"
 end

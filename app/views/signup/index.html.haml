@@ -12,13 +12,14 @@
           .signup__form--mercari-login-button
             = icon('far','envelope', class: "signup__mail_icon")
             メールアドレスで登録
-        .signup__form--facebook-button
-          = icon('fab','facebook', class: "signup__facebook_icon")
-          Facebookで登録
-
-        .signup__form--google-button
-          = image_tag('/links/google.svg', class: "signup__google_icon")
-          Googleで登録
+        = link_to user_facebook_omniauth_authorize_path do
+          .signup__form--facebook-button
+            = icon('fab','facebook', class: "signup__facebook_icon")
+            Facebookで登録
+        = link_to user_google_oauth2_omniauth_authorize_path do
+          .signup__form--google-button
+            = image_tag('/links/google.svg', class: "signup__google_icon")
+            Googleで登録
 
 
 
