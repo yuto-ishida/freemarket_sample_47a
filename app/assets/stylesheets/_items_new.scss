@@ -106,10 +106,17 @@ body{
     }
   }
   &__image--views{
+    @include box(120px,auto);
     padding: 0 55px ;
     display: flex;
-    &-img{
+    &-box{
+      display: unset;
+      &-img{
       @include box(100px,100px);
+      }
+      &-input{
+        display: none;
+      }
     }
   }
   &__item_name_description{
