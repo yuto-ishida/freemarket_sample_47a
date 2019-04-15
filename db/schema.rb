@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20190413052702) do
-
+ActiveRecord::Schema.define(version: 20190415101008) do
 
   create_table "brand_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id",   null: false
@@ -83,11 +81,12 @@ ActiveRecord::Schema.define(version: 20190413052702) do
   end
 
   create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.string   "customer_id"
+    t.string   "name",        null: false
+    t.string   "customer_id", null: false
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
   create_table "date_of_shipments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -224,13 +223,11 @@ ActiveRecord::Schema.define(version: 20190413052702) do
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
-    t.integer  "customer_id"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "name"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["name"], name: "index_users_on_name", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
@@ -241,6 +238,7 @@ ActiveRecord::Schema.define(version: 20190413052702) do
   add_foreign_key "buyers", "users"
   add_foreign_key "category_items", "items"
   add_foreign_key "contact_informations", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "evaluations", "items"
   add_foreign_key "evaluations", "users"
   add_foreign_key "evaluators", "evaluations"
