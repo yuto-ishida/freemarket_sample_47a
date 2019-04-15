@@ -47,7 +47,7 @@
         .item_new__deteils--titile
           .item-new__sub--title
             商品の詳細
-            = icon('fas','question-circle',class: "item_new_question")
+            .fas.fa-question-circle.item_new_question
         .item_new__deteils--right-box.item_new__right-box
           .item_new__deteils--box
             .item_new__deteils--name
@@ -56,7 +56,7 @@
               .item_new__need_mark
                 必須
             = f.collection_select :category_ids ,Category.all,:id,:name,{multiple: true,include_blank: "---"},class: "item_new__deteils--input", type: "text"
-            = icon('fas','chevron-down', class: "item_new__allow-icon")
+            .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--box
             .item_new__deteils--name
               .item_new__child--title
@@ -64,7 +64,7 @@
               .item_new__need_mark
                 必須
             = f.collection_select :item_size_ids,ItemSize.all,:id,:name,{multiple: true,include_blank: "---"},class: "item_new__deteils--input", type: "text"
-            = icon('fas','chevron-down', class: "item_new__allow-icon")
+            .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--box
             .item_new__deteils--name
               .item_new__child--title
@@ -72,7 +72,7 @@
               .item_new__need_mark
                 必須
             = f.collection_select :brand_ids,Brand.all,:id,:name,{multiple: true,include_blank: "---"},class: "item_new__deteils--input", type: "text"
-            = icon('fas','chevron-down', class: "item_new__allow-icon")
+            .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--box
             .item_new__deteils--name
               .item_new__child--title
@@ -80,13 +80,13 @@
               .item_new__need_mark
                 必須
             = f.collection_select :condition_id ,Condition.all,:id,:name,{multiple: true,include_blank: "---"}, class: "item_new__deteils--input", type: "text", placeholder:"---"
-            = icon('fas','chevron-down',class: "item_new__allow-icon")
+            .fas.fa-chevron-down.item_new__allow-icon
       %hr.item_new__line
       .item_new__deteils
         .item_new__deteils--title
           .item-new__sub--title
             配送について
-            = icon('fas','question-circle',class: "item_new_question")
+            .fas.fa-question-circle.item_new_question
         .item_new__deteils--shipping-right-box.item_new__right-box
           .item_new__deteils--name
             .item_new__child--title
@@ -94,35 +94,35 @@
             .item_new__need_mark
               必須
           = f.collection_select :shipping_burden_id ,ShippingBurden.all,:id,:name,{include_blank: "---"},class: "item_new__deteils--input" ,type: "text"
-          = icon('fas','chevron-down',class: "item_new__allow-icon")
+          .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--name
             .item_new__child--title
               配送料の負担
             .item_new__need_mark
               必須
           = f.collection_select :shipping_style_id ,ShippingStyle.all,:id,:name,{include_blank: "---"},class: "item_new__deteils--input" ,type: "text"
-          = icon('fas','chevron-down',class: "item_new__allow-icon")
+          .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--name
             .item_new__child--title
               発送元の地域
             .item_new__need_mark
               必須
           = f.collection_select :prefecture_id,Prefecture.all,:id,:name,{include_blank: "---"},class: "item_new__deteils--input",type: "text"
-          = icon('fas','chevron-down',class: "item_new__allow-icon")
+          .fas.fa-chevron-down.item_new__allow-icon
           .item_new__deteils--name
             .item_new__child--title
               発送までの日数
             .item_new__need_mark
               必須
           = f.collection_select :date_of_shipment_id ,DateOfShipment.all,:id,:name,{include_blank: "---"},class: "item_new__deteils--input",type: "text"
-          = icon('fas','chevron-down',class: "item_new__allow-icon")
+          .fas.fa-chevron-down.item_new__allow-icon
 
       %hr.item_new__line
       .item_new__price
         .item_new__price--titel
           .item-new__sub--title
             販売価格(300~9,999,999)
-            = icon('fas','question-circle',class: "item_new_question")
+            .fas.fa-question-circle.item_new_question
         .item_new__price--right-box.item_new__right-box
           .item_new__price--price
             .item_new__price--price-title

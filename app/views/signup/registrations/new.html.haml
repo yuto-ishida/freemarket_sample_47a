@@ -79,20 +79,20 @@
           .registration__form--birthday
             .registration__form--birthday-input
               %input.registration__form--birthday-input-box{type: "text",placeholder:"--"}
-              = icon('fas','chevron-down',class: "registration__form--allow-icon")
+              .fas.fa-chevron-down.registration__form--allow-icon
             .registration__form--birthday-unit
               年
 
           .registration__form--birthday
             .registration__form--birthday-input
               %input.registration__form--birthday-input-box{type: "text",placeholder:"--"}
-              = icon('fas','chevron-down',class: "registration__form--allow-icon")
+              .fas.fa-chevron-down.registration__form--allow-icon
             .registration__form--birthday-unit
               月
           .registration__form--birthday
             .registration__form--birthday-input
               %input.registration__form--birthday-input-box{type: "text",placeholder:"--"}
-              = icon('fas','chevron-down',class: "registration__form--allow-icon")
+              .fas.fa-chevron-down.registration__form--allow-icon
             .registration__form--birthday-unit
               日
           .registration__form--birthday-notes
@@ -109,7 +109,7 @@
         .registration__form--Personal_information_registration.registration__form--group
           = link_to  do
             本人情報の登録について
-            = icon('fas','chevron-right')
+            .fas.fa-chevron-right
 
 = render "/signup/shered/signup_fotter"
 
