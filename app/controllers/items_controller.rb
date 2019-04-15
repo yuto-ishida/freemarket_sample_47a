@@ -51,10 +51,8 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.user_id == current_user.id
       @item.update_attributes(item_params)
-      redirect_to root_path
-    else
-      redirect_to root_path
     end
+    redirect_to root_path
 
   end
 
