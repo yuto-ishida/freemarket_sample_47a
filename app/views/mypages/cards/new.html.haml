@@ -59,6 +59,7 @@
               .card_new__content__box__discription--text
                 カード裏面の番号とは？
           .card_new__content__box__red-button
-            追加する
+            = form_tag(action: :create, method: :post) do
+              %script.payjp-button{"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}", :src => "https://checkout.pay.jp", :type => "text/javascript", "data-token-name" => "token_name"}
 
 = render "shered/fotter"

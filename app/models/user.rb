@@ -15,5 +15,6 @@ class User < ApplicationRecord
   has_many :likes
   has_many :messages
   has_many :buyers
+  has_many :credit_cards
 
 end
