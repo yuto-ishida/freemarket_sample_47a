@@ -7,24 +7,28 @@
       .item_new__title
         商品の情報を入力
       %hr.item_new__line
-        = f.fields_for :item_images do |i|
-          .image_form
-            .item_new__image
-              .item_new__image--titles
-                .item_new__child--title
-                  出品画像
-                .item_new__need_mark
-                  必須
-              .item_new__image--description
-                最大10枚までアップロードできます
-                = i.label :image do
-                  .item_new__image--input
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    %br
+        .image_form
+          .item_new__image
+            .item_new__image--titles
+              .item_new__child--title
+                出品画像
+              .item_new__need_mark
+                必須
+            .item_new__image--description
+              最大10枚までアップロードできます
+              .item_new__image--input
+                ドラッグアンドドロップ
+                %br
+                またはクリックしてファイルをアップロード
+                %br
+                .item_new__image--views
+                  = f.fields_for :item_images do |i|
+                    .item_new__image--views-box
+                    = i.file_field :image , id: "image_up",class: "input_image_#{i.object.id} item_new__image--views-box-input",value: i.object.id
+                    = image_tag(i.object.image.url,class:"item_new__image--views-box-img preview input_image_#{i.object.id}",value: i.object.id )
 
-        .item_new__image--views
+
+
 
         %hr.item_new__line
         .item_new__item_name_description
