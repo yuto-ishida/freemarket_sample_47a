@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:index, :show]
 
   def index
+
     @category_women = Category.find(1)
     @items_category_women = @category_women.items.order("created_at DESC").limit(4)
 
