@@ -37,7 +37,9 @@
           %tr.tops_show__main--bland
             %th.tops_show__main--bland-left ブランド
             %td.tops_show__main--bland-right
-              = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
+              - unless @item.brands.empty?
+                = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
+
           %tr.tops_show__main--product-status
             %th.tops_show__main--product-status-left 商品の状態
             %td.tops_show__main--product-status-right
@@ -66,6 +68,7 @@
         %span.tops_show__main--fee 送料込み
       - if user_signed_in? && current_user.id == @item.user_id
         = link_to "削除","/items/#{@item.id}",method: "DELETE",class: "tops_show__main--purchase"
+        = link_to "編集",edit_item_path(@item),class: "tops_show__main--purchase"
       - else
         = link_to "購入画面に進む", buys_path,class: "tops_show__main--purchase"
 
