@@ -445,10 +445,42 @@ button{
   &__image{
     @include box(213px,213px);
     background-color: red;
+    position:relative;
     .test_image{
       @include box(213px,213px);
     }
+    &__sold-out-badge{
+      position:absolute;
+      font-size: 26px;
+      border-width: 100px 100px 0 0;
+      border-color: #ea352d transparent transparent transparent;
+      display: block;
+      content: '';
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      color:white;
+
+
+    }
+    &--text{
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+        top: 15px;
+    font-size: 20px;
+
+    }
   }
+
+
   &__body{
   @include box(78px,181px);
     padding:16px;
@@ -459,6 +491,7 @@ button{
     overflow: hidden;
     position: relative;
   }
+
   &__name_linear{
     position: absolute;
     bottom: 0;
@@ -490,6 +523,10 @@ button{
     font-size: 16px;
   }
 }
+a:hover{
+  cursor:pointer;
+  color:black;
+}
 
 
 
@@ -499,9 +536,9 @@ button{
   color: #0099e8;
   @include box(auto,auto);
   .show-all__button{
-      @include box(auto,auto);
-      margin: 0 0 0 auto;
-      color: #0099e8;
+    @include box(auto,auto);
+    margin: 0 0 0 auto;
+    color: #0099e8;
   }
 }
 

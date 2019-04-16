@@ -36,13 +36,13 @@
             .card_new__content__box__day
               .card_new__content__box__day__box
                 %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
-                .fas.fa-chevron-down.card_new__content__box__day__box--allow-icon
+
               .card_new__content__box__day--right-text
                 月
             .card_new__content__box__day
               .card_new__content__box__day__box
                 %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
-                .fas.fa-chevron-down..card_new__content__box__day__box--allow-icon
+
               .card_new__content__box__day--right-text
                 年
 
@@ -58,8 +58,12 @@
               .fas.fa-question-circle.card_new__content__box__discription--icon
               .card_new__content__box__discription--text
                 カード裏面の番号とは？
-          .card_new__content__box__red-button
-            = form_tag(action: :create, method: :post) do
-              %script.payjp-button{"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}", :src => "https://checkout.pay.jp", :type => "text/javascript", "data-token-name" => "token_name"}
+          - if current_user.credit_cards.last.customer_id = true
+            .card_new__content__box__false-button
+              既に登録されています
+          - else
+            .card_new__content__box__red-button
+              = form_tag(action: :create, method: :post) do
+                %script.payjp-button{"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}", :src => "https://checkout.pay.jp", :type => "text/javascript", "data-token-name" => "token_name"}
 
 = render "shered/fotter"
