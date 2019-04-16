@@ -5,6 +5,7 @@ class Mypages::CardsController < ApplicationController
   end
 
   def new
+    @credits = CreditCard.all
   end
 
   def create
