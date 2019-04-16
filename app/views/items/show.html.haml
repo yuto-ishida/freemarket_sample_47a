@@ -70,7 +70,7 @@
         = link_to "削除","/items/#{@item.id}",method: "DELETE",class: "tops_show__main--purchase"
         = link_to "編集",edit_item_path(@item),class: "tops_show__main--purchase"
       - else
-        = link_to "購入画面に進む", buys_path,class: "tops_show__main--purchase"
+        = link_to "購入画面に進む","/items/#{@item.id}/buy",class: "tops_show__main--purchase"
 
       .tops_show__main--text
         .tops_show__main--description

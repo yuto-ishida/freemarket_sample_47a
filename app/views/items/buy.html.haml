@@ -7,14 +7,14 @@
     %hr.buy__line
     .buy__content
       .buy__content--inner
-        = image_tag("/buy_images/LEXUS.jpg",class: "buy__content__image")
+        = image_tag(@item.item_images.first.image.url,class: "buy__content__image")
       %p.buy__item-name
-        レクサス sc430 ユニバーサルエアー viair
+        #{@item.name}
       .buy__price--box
         %p.buy__price
-          ¥ 1,200,000
+          ¥ #{number_with_delimiter(@item.price)}
           %span.buy__shipping-fee
-            着払い
+            #{@item.shipping_style.name}
       .buy__point--box
         %p.buy__point
           ポイントはありません
@@ -22,10 +22,10 @@
         .buy__payment-box__text
           支払い金額
         .buy__payment-box__price
-          ¥1,200,000
+          ¥ #{number_with_delimiter(@item.price)}
       %p.buy__has-error-text
         配送先と支払方法の入力を完了してください。
-      = form_tag(action:"pay", method: "post") do
+      = form_tag(action:"pay", method: "post",item_id: @item.id,item_price: @item.price) do
         = button_tag("購入する",class:"buy__buy-botton")
     %hr.buy__line
     .buy__content2
@@ -46,7 +46,7 @@
         %h3.buy__content3__payment__top
           支払い方法
         %address.buy__content3__payment__center
-          ・現金払い
+          ・クレジット払い
         .buy__content3__payment__button
           =link_to do
             %span.buy__content3__payment__button--text

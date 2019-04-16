@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,only: [:new,:create]
+  before_action :authenticate_user!,only: [:new,:create,:buy,:pay]
   before_action :set_category, only: [:index, :show]
 
   def index
@@ -69,6 +69,27 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy
+    @item = Item.find(params[:id])
+  end
+
+  def pay
+    Payjp.api_key = "#{ENV['PAYJP_PRIVATE_KEY']}"
+    customer_id = current_user.credit_cards.last.customer_id
+    price = params[:item_price]
+
+    Payjp::Charge.create(
+    amount: price,
+    currency: 'jpy',
+    customer: customer_id
+  )
+    item_id = params[:item_id]
+    @item = Item.find(item_id)
+    @item.status_id = 4
+    @item.save
+
+    redirect_to  root_path
+  end
 
   private
   def item_params
