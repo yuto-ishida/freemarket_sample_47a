@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:index, :show]
 
   def index
+
     @category_women = Category.find(1)
     @items_category_women = @category_women.items.order("created_at DESC").limit(4)
 
@@ -30,7 +31,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @ItemImage = ItemImage.new
+    @item.item_images.build
   end
 
   def create
@@ -43,27 +44,35 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.new(item_params)
+    if @item.user_id == current_user.id
+      @item.update_attributes(item_params)
+    end
+    redirect_to root_path
+
+  end
+
   def show
     @item = Item.find(params[:id])
   end
 
   def destroy
-   item = Item.find(params[:id])
-   if item.user_id == current_user.id
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
       item.destroy
       redirect_to root_path
-   end
+    end
   end
+
 
   private
   def item_params
-    params.require(:item).permit(:status_id ,{:item_image_ids => []},:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price).merge(user_id: current_user.id)
-  end
-
-  def item_image_params
-    image_ids = params.require(:item).permit(:item_image_ids => [])
-    item_image_ids = image_ids[:item_image_ids]
-    return item_image_ids
+    params.require(:item).permit(:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_category

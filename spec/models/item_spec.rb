@@ -16,7 +16,7 @@ RSpec.describe Item, type: :model do
   describe '#create' do
     context 'can save' do
       it 'is valid with brand_ids' do
-        item = build(:item,user: user,condition: condition,shipping_burden: shipping_burden, shipping_style: shipping_style, date_of_shipment: date_of_shipment,category_ids: category.id, item_size_ids: item_size.id , status: status, item_image_ids: item_image.id, brand_ids: nil)
+        item = build(:item,user: user,condition: condition,shipping_burden: shipping_burden, shipping_style: shipping_style, date_of_shipment: date_of_shipment,category_ids: category.id, item_size_ids: item_size.id , status: status, item_image: item_image, brand_ids: nil)
         expect(item).to be_valid
       end
     end
