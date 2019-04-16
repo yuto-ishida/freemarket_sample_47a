@@ -4,21 +4,28 @@
       .header__search
         = link_to root_path do
           = image_tag('/top_images/mercari_main_icon.png', class: "header__main_icon")
-        %input.header__search--box{ placeholder: "何かお探しですか？" }
-        = link_to icon('fas','search', class: "header__search--icon")
+        = form_tag(searches_path, method: :get,class: "header__search--box") do
+          = text_field_tag :keyword ,"",class:"header__search--box-input", placeholder: "何かお探しですか？"
+          = button_tag type: "submit",class:" header__search--icon" do
+            <i class="fa fa-search"></i>
       .header__buttons
-        = icon('fas','list',class: "header__list_tag_icon")
-        = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
-        = icon('fas','tag',class: "header__tag_icon")
-        = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
+
+        .header__buttons--category.header__mouse_over
+          = link_to categories_path do
+            .fas.fa-list.header__list_tag_icon
+            = link_to "カテゴリーから探す",categories_path,class: 'header__category--search'
+        .haeader__buttons--brand
+          = link_to brands_path do
+            .fas.fa-tag.header__tag_icon
+            = link_to "ブランドから探す",brands_path, class: 'header__brand--serach'
         .header__right
           - if user_signed_in?
             = link_to mypages_path, class: 'header__notice' do
-              = icon('far','bell', class: 'header__bell_icon')
+              .far.fa-bell.header__bell_icon
               .header__notice--title
                 お知らせ
             = link_to mypages_path, class: 'header__to_do_list' do
-              = icon('fas','check', class: 'header__chack_icon')
+              .fas.fa-check.header__chack_icon
               .header__to_do_list_title
                 やることリスト
 
@@ -34,3 +41,28 @@
             = link_to signup_index_path do
               .header__signin
                 新規会員登録
+.header__category_brand
+  .header__category_brand--box.header__mouse_over
+    .header__category_brand--box-parents
+      - @category.where(ancestry: nil).find_each do |category|
+        = link_to category_path(category) do
+          .header__category_brand--box-parents-button{value: category.id}
+            = category.name
+    - @category.where(ancestry: nil).find_each do |category_parent|
+      - if @category.find_by(ancestry:"#{category_parent.id}") != nil
+        .header__category_brand--box-child{value: category_parent.id }
+          - @category.where(ancestry: category_parent.id).find_each do |category|
+            = link_to category_path(category) do
+              .header__category_brand--box-child-button{value: "#{category_parent.id}/#{category.id}" }
+                = category.name
+
+    - @category.where(ancestry: nil).find_each do |category_parent|
+      - @category.where(ancestry: category_parent.id).find_each do |category_child|
+        - if @category.find_by(ancestry:"#{category_parent.id}/#{category_child.id}") != nil
+          .header__category_brand--box-grandchild{value: "#{category_parent.id}/#{category_child.id}" }
+            - @category.where(ancestry: "#{category_parent.id}/#{category_child.id}").find_each do |category|
+              = link_to category_path(category) do
+                .header__category_brand--box-grandchild-button
+                  = category.name
+
+

@@ -94,6 +94,29 @@ body{
       text-align: center;
       font-size: 14px;
       letter-spacing: -2px;
+      color: #000;
+      &-zone{
+        @include box(auto,auto)
+      }
+
+
+    }
+    &--input-none{
+      display: none;
+    }
+  }
+  &__image--views{
+    @include box(120px,auto);
+    padding: 0 55px ;
+    display: flex;
+    &-box{
+      display: unset;
+      &-img{
+      @include box(100px,100px);
+      }
+      &-input{
+        display: none;
+      }
     }
   }
   &__item_name_description{
@@ -108,6 +131,7 @@ body{
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 10px 16px 8px 16px;
+        color: #000;
       }
     }
     &--description{
@@ -122,6 +146,7 @@ body{
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 10px 16px 8px 16px;
+        color: #000;
       }
     }
   }
@@ -131,74 +156,24 @@ body{
     &--titile{
       display: flex;
     }
-    &--category{
-      &-name{
+    &--box{
+    }
+    &--name{
         display: flex;
-      }
-      &-input{
-        position: relative;
-        margin-top: 8px;
-        @include box(48px,366px);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0px 16px;
-      }
     }
-    &--stetus{
-      margin-top: 15px;
-      &-title{
-        display: flex;
-      }
-      &-input{
-        margin-top: 8px;
-        @include box(48px,366px);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0px 16px;
-      }
-    }
-  }
-  &__deteils--shipping{
-    padding: 40px;
-    display: flex;
-    &-title{
-      display: flex;
-    }
-    &-burden-title{
-      display: flex;
-    }
-    &-burden-input{
-        margin-top: 8px;
-      @include box(48px,366px);
+    &--input{
+      position: relative;
+      margin-top: 8px;
+      @include box(48px,400px);
       border: 1px solid #ccc;
       border-radius: 4px;
       padding: 0px 16px;
-    }
-    &-area-title{
-      padding-top: 15px;
-      display: flex;
-      .item_new__need_mark{
-      }
-    }
-    &-area-input{
-        margin-top: 8px;
-      @include box(48px,366px);
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 0px 16px;
+      -webkit-appearance: button;
+      background-color: white;
+      color: #000;
     }
   }
-  &__deteils--dete_of_shipment-title{
-    padding-top: 15px;
-    display: flex;
-  }
-  &__deteils--dete_of_shipment-input{
-    margin-top: 8px;
-    @include box(48px,366px);
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0px 16px;
-  }
+
   &__price{
     padding: 40px;
     display: flex;
@@ -232,6 +207,7 @@ body{
       }
       &-input::placeholder {
         text-align: right;
+        color: #888;
       }
     }
     &--price-sales-commission{

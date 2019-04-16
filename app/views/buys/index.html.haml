@@ -25,8 +25,8 @@
           ¥1,200,000
       %p.buy__has-error-text
         配送先と支払方法の入力を完了してください。
-      .buy__buy-botton
-        購入する
+      = form_tag(action:"pay", method: "post") do
+        = button_tag("購入する",class:"buy__buy-botton")
     %hr.buy__line
     .buy__content2
       .buy__content2__address
@@ -35,11 +35,11 @@
         %address.buy__content2__address__center
           〒563-0058
         .buy__content2__address__button
-          =link_to new_top_path do
+          =link_to  do
             %span.buy__content2__address__button--text
               変更する
             %i.buy__content2__address__button--icon
-              = icon('fas','chevron-right')
+              .fas.fa-chevron-right
     %hr.buy__line
     .buy__content3
       .buy__content3__payment
@@ -48,11 +48,11 @@
         %address.buy__content3__payment__center
           ・現金払い
         .buy__content3__payment__button
-          =link_to new_top_path do
+          =link_to do
             %span.buy__content3__payment__button--text
               変更する
             %i.buy__content3__payment__button--icon
-              = icon('fas','chevron-right')
+              .fas.fa-chevron-right
 
 
 

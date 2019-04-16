@@ -1,4 +1,4 @@
 class ItemImageItem < ApplicationRecord
-  belongs_to :items, though: item_images
-  has_many :item_images
+  belongs_to :item
+  belongs_to :item_image, dependent: :destroy
 end

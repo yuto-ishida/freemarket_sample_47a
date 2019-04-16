@@ -1,7 +1,7 @@
 = render "shered/header"
 .pankuzu
   - breadcrumb :new_mypages_card
-  = breadcrumbs separator: icon('fas','chevron-right',class: "pankuzu__arrow-icon")
+  = breadcrumbs separator: "<text class='fas fa-chevron-right pankuzu__arrow-icon'></text>"
 .mypage
   - button_main_number = 18
   = render "/mypages/shered/header",button_main_number:button_main_number
@@ -36,13 +36,13 @@
             .card_new__content__box__day
               .card_new__content__box__day__box
                 %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
-                = icon('fas','chevron-down',class: "card_new__content__box__day__box--allow-icon")
+                .fas.fa-chevron-down.card_new__content__box__day__box--allow-icon
               .card_new__content__box__day--right-text
                 月
             .card_new__content__box__day
               .card_new__content__box__day__box
                 %input.card_new__content__box__day__box--text{type: "text",placeholder:"---"}
-                = icon('fas','chevron-down',class: "card_new__content__box__day__box--allow-icon")
+                .fas.fa-chevron-down..card_new__content__box__day__box--allow-icon
               .card_new__content__box__day--right-text
                 年
 
@@ -55,10 +55,11 @@
                 必須
             %input.card_new__content__box__card_no--textbox{type: "text",placeholder:"カード背面4桁もしくは3桁の番号"}
             .card_new__content__box__discription
-              = icon('fas','question-circle',class: "card_new__content__box__discription--icon")
+              .fas.fa-question-circle.card_new__content__box__discription--icon
               .card_new__content__box__discription--text
                 カード裏面の番号とは？
           .card_new__content__box__red-button
-            追加する
+            = form_tag(action: :create, method: :post) do
+              %script.payjp-button{"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}", :src => "https://checkout.pay.jp", :type => "text/javascript", "data-token-name" => "token_name"}
 
 = render "shered/fotter"

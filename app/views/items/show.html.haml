@@ -1,0 +1,288 @@
+= render "shered/header"
+.wapper
+  .tops_show
+    .tops_show__main
+      %h1.tops_show__main--header
+        = @item.name
+      .tops_show__main--top
+        .tops_show__main--image
+          = image_tag(@item.item_images.first.image.url, class: "tops_show__main--left")
+          .tops_show__main--right
+            - @item.item_images.each do|itemimage|
+              = image_tag(itemimage.image.url, class: "tops_show__main--details")
+        %table.tops_show__main--information
+          .tops_show__main--exhibitor
+            %th.tops_show__main--exhibitor-left
+              出品者
+            %td.tops_show__main--exhibitor-right
+              =link_to "#{@item.user.name}","",class: "exhibitor__right--name"
+              .expression
+                .fas.fa-laugh.smail
+                %span 373
+                .fas.fa-meh.usually
+                %span 11
+                .fas.fa-frown.sad
+                %span 0
+          %tr.tops_show__main--category
+            %th.tops_show__main--category-left
+              カテゴリー
+            %td.tops_show__main--category-right
+              = link_to "#{@item.categories.first.name}","",class: "tops_show__main--category-first"
+              %br
+              = link_to "",class: "tops_show__main--category-second" do
+                %i.fas.fa-chevron-right
+              %br
+              = link_to "",class: "tops_show__main--category-third" do
+                %i.fas.fa-chevron-right
+          %tr.tops_show__main--bland
+            %th.tops_show__main--bland-left ブランド
+            %td.tops_show__main--bland-right
+              - unless @item.brands.empty?
+                = link_to "#{@item.brands.first.name}","",class: "tops_show__main--bland-right-name"
+
+          %tr.tops_show__main--product-status
+            %th.tops_show__main--product-status-left 商品の状態
+            %td.tops_show__main--product-status-right
+              = @item.condition.name
+          %tr.tops_show__main--delivery-fee
+            %th.tops_show__main--delivery-fee-left 配送料の不安
+            %td.tops_show__main--delivery-fee-right
+              = @item.shipping_burden.name
+          %tr.tops_show__main--delivery-method
+            %th.tops_show__main--delivery-method-left 配送の方法
+            %td.tops_show__main--delivery-method-right
+              = @item.shipping_style.name
+          %tr.tops_show__main--delivery-source-area
+            %th.tops_show__main--delivery-source-area-left 配送元地域
+            %td.tops_show__main--delivery-source-area-right
+              = link_to "#{@item.prefecture.name}","",class: "prefecture"
+          %tr.tops_show__main--date-of-shipment
+            %th.tops_show__main--date-of-shipment-left 発送日の目安
+            %td.tops_show__main--date-of-shipment-right
+              = @item.date_of_shipment.name
+      .tops_show__main--money
+        %span.tops_show__main--price
+          ¥
+          = number_with_delimiter(@item.price)
+        %span.tops_show__main--tax （税込）
+        %span.tops_show__main--fee 送料込み
+      - if user_signed_in? && current_user.id == @item.user_id
+        = link_to "削除","/items/#{@item.id}",method: "DELETE",class: "tops_show__main--purchase"
+        = link_to "編集",edit_item_path(@item),class: "tops_show__main--purchase"
+      - else
+        = link_to "購入画面に進む", buys_path,class: "tops_show__main--purchase"
+
+      .tops_show__main--text
+        .tops_show__main--description
+          = @item.description
+
+        .tops_show__main--containre
+          .tops_show__main--containre-left
+            .tops_show__main--containre-left-like
+              %i.far.fa-heart
+              =link_to "いいね！1","",class: "tops_show__main--good"
+            .tops_show__main--containre-left-warning
+              %i.far.fa-flag
+              =link_to "不適切な商品の報告","https://www.mercari.com/jp/report/m85240041031/",class: "tops_show__main--report"
+          .tops_show__main--containre-right
+            = link_to "https://www.mercari.com/jp/safe/description/",class: "tops_show__main--containre-right-lock" do
+              %i.fas.fa-lock
+              あんしん・あんぜんへの取り組み
+
+    .tops_show__message
+      .tops_show__message--coteiner
+        .tops_show__message--comment
+          .tops_show__message--item
+            .tops_show__message--grafic
+              .tops_show__message--messagebody-main
+                = link_to mypage_path do
+                  = image_tag("/top_images/mercari_icon.png",class: "tops_show__message--grafic-image")
+                .tops_show__message--messagebody-a
+                  %figcaption.bold ❁ ぴょんぴょん ❁
+                  .tops_show__message--messageboby
+                    .tops_show__message--messageboby-text
+                      .tops_show__message--messageboby-text-comment
+                        .tops_show__message--messageboby-text-comment2
+                          コメント失礼します(＞＜)購入希望ですが、3400円はキツイでしょうか？(＞＜)
+                        .tops_show__message--messageboby-text-clock
+                          %i.far.fa-clock
+                            １日前
+                          %i.far.fa-flag
+              %form.tops_show__message--form
+                %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+                %textarea
+                .tops_show__message--button
+                  %span コメントする
+
+    %ul.tops_show__next
+      %li.tops_show__next--left
+        = link_to "",class: "tops_show__next--left-side" do
+          %i.fas.fa-chevron-left
+          NYヤンキースユニフォーム
+      %li.tops_show__next--right
+        = link_to "",class: "tops_show__next--right-side" do
+          LAドジャースユニフォーム
+          %i.fas.fa-chevron-right
+
+    .tops_show__media-box
+      %ul.tops_show__media-box--social
+        .tops_show__media-box--icon
+          = link_to "https://www.facebook.com/", class: "tops_show__media-box--facebook" do
+            %i.fab.fa-facebook
+          = link_to "https://twitter.com/", class: "tops_show__media-box--twiter" do
+            %i.fab.fa-twitter
+          = link_to "https://www.pinterest.jp/", class: "tops_show__media-box--pinterest" do
+            %i.fab.fa-pinterest
+
+.top-main--exhibitor
+  .top-products--exhibitor
+    .pickup
+      .pickup__title
+      .pickup__subtitle--exhibitor
+        メルカリさんのその他の商品
+      .pickup__products
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+      .pickup__products
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+
+        .product
+          .product__image
+            = image_tag('/top_images/test1.jpg', class: "test_image")
+          .product__body
+            .product__name
+              マーガレッド ハウエル サンダルああああああああ
+              .product__name_linear
+            .product__price_and_like
+              .product__prices
+                .product__price
+                  ¥4,000
+                .product__tax
+                  (税込)
+              .product__like
+                .far.fa-heart.product__good_icon
+                .product__like_num
+                  12
+= render "shered/fotter"

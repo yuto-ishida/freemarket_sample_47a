@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20190415101842) do
+
 
   create_table "brand_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id",   null: false
@@ -38,9 +40,10 @@ ActiveRecord::Schema.define(version: 20190415101842) do
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "parent"
+    t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "category_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -79,6 +82,15 @@ ActiveRecord::Schema.define(version: 20190415101842) do
     t.index ["user_id"], name: "index_contact_informations_on_user_id", using: :btree
   end
 
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",        null: false
+    t.string   "customer_id", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
+  end
+
   create_table "date_of_shipments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -114,7 +126,7 @@ ActiveRecord::Schema.define(version: 20190415101842) do
   end
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "image"
     t.integer  "main"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -131,34 +143,26 @@ ActiveRecord::Schema.define(version: 20190415101842) do
 
   create_table "item_sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.integer  "parent"
+    t.integer  "parents"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",                              null: false
-    t.text     "description",         limit: 65535
+    t.text     "description",         limit: 65535, null: false
     t.integer  "user_id",                           null: false
-    t.integer  "category_parent"
-    t.integer  "category_child"
-    t.integer  "category_grandchild"
-    t.integer  "brand_id"
-    t.integer  "item_image_id"
     t.integer  "condition_id",                      null: false
-    t.integer  "item_size_id",                      null: false
     t.integer  "shipping_burden_id",                null: false
     t.integer  "shipping_style_id",                 null: false
+    t.integer  "prefecture_id",                     null: false
+    t.integer  "date_of_shipment_id",               null: false
     t.integer  "price",                             null: false
-    t.integer  "credit_id"
     t.integer  "status_id",                         null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
-    t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["condition_id"], name: "index_items_on_condition_id", using: :btree
-    t.index ["credit_id"], name: "index_items_on_credit_id", using: :btree
-    t.index ["item_image_id"], name: "index_items_on_item_image_id", using: :btree
-    t.index ["item_size_id"], name: "index_items_on_item_size_id", using: :btree
+    t.index ["date_of_shipment_id"], name: "index_items_on_date_of_shipment_id", using: :btree
     t.index ["shipping_burden_id"], name: "index_items_on_shipping_burden_id", using: :btree
     t.index ["shipping_style_id"], name: "index_items_on_shipping_style_id", using: :btree
     t.index ["status_id"], name: "index_items_on_status_id", using: :btree
@@ -194,6 +198,11 @@ ActiveRecord::Schema.define(version: 20190415101842) do
     t.index ["user_id"], name: "index_points_on_user_id", using: :btree
   end
 
+  create_table "prefectures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shipping_burdens", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -222,6 +231,7 @@ ActiveRecord::Schema.define(version: 20190415101842) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -230,6 +240,7 @@ ActiveRecord::Schema.define(version: 20190415101842) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["name"], name: "index_users_on_name", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
@@ -238,16 +249,15 @@ ActiveRecord::Schema.define(version: 20190415101842) do
   add_foreign_key "buyers", "users"
   add_foreign_key "category_items", "items"
   add_foreign_key "contact_informations", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "evaluations", "items"
   add_foreign_key "evaluations", "users"
   add_foreign_key "evaluators", "evaluations"
   add_foreign_key "evaluators", "users"
   add_foreign_key "item_image_items", "items"
   add_foreign_key "item_size_items", "items"
-  add_foreign_key "items", "brands"
   add_foreign_key "items", "conditions"
-  add_foreign_key "items", "item_images"
-  add_foreign_key "items", "item_sizes"
+  add_foreign_key "items", "date_of_shipments"
   add_foreign_key "items", "shipping_burdens"
   add_foreign_key "items", "shipping_styles"
   add_foreign_key "items", "statuses"

@@ -35,14 +35,15 @@ class User < ApplicationRecord
 
   validates :email, presence: true
 
-  has_many :items, :dependent => :destroy
-  has_many :credits, :dependent => :destroy
-  has_many :contact_informations, :dependent => :destroy
+  has_many :items, dependent: :destroy
+  has_many :credits, dependent: :destroy
+  has_many :ContactInformations, dependent: :destroy
   has_many :informations
-  has_many :points, :dependent => :destroy
+  has_many :points, dependent: :destroy
   has_many :evaluations
   has_many :likes
   has_many :messages
   has_many :buyers
+  has_many :credit_cards
 
 end

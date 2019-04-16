@@ -3,15 +3,16 @@ Rails.application.routes.draw do
     :omniauth_callbacks =>  "users/omniauth_callbacks"
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "tops#index"
-  resources :tops, only: :new
+  root "items#index"
+  resources :items, only: [:new, :create, :edit, :update, :destroy, :show]
   resources :brands, only: :index
-  resources :categories, only: :index
+  resources :categories, only: [:index ,:show]
   namespace :mypages do
     resources :identifications, only: [:new, :create]
     resources :logins, only: :index
     resources :logouts, only: :index
-    resources :cards, only: [:index,:new]
+    resources :cards, only: [:index,:new,:create]
+
   end
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy]
   resources :signup, only: [:index]
@@ -25,5 +26,12 @@ Rails.application.routes.draw do
     resources :credit_cards, only: [:new, :create]
   end
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy,:card]
+  resources :buys, only: :index do
+    collection do
+      post 'pay' => 'buys#pay'
+    end
+  end
 
+  resources :item_images, only: [:create,:update, :destroy]
+  resources :searches, only: [:index]
 end
