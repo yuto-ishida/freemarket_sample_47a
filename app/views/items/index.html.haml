@@ -37,7 +37,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
-                .product__image__item-sold-out-badge
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
 
               .product__body
                 .product__name
@@ -66,6 +70,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -94,6 +103,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -121,6 +135,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -150,6 +169,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -177,6 +201,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -204,6 +233,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
@@ -231,6 +265,11 @@
             = link_to item_url(id: item.id) do
               .product__image
                 = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
               .product__body
                 .product__name
                   = item.name
