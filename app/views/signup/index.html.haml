@@ -15,11 +15,11 @@
 
         = link_to user_facebook_omniauth_authorize_path do
           .signup__form--facebook-button
-            = icon('fab','facebook', class: "signup__facebook_icon")
+            / = icon('fab','facebook', class: "signup__facebook_icon")
             Facebookで登録
         = link_to user_google_oauth2_omniauth_authorize_path do
           .signup__form--google-button
-            = image_tag('/links/google.svg', class: "signup__google_icon")
+            / = image_tag('/links/google.svg', class: "signup__google_icon")
             Googleで登録
 
     = render "/signup/shered/signup_fotter"
