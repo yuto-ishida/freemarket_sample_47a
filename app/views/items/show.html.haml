@@ -148,8 +148,7 @@
   .top-products--exhibitor
     .pickup
       .pickup__title
-      .pickup__subtitle--exhibitor
-        testさんのその他の商品
+        =link_to "#{@item.user.name}さんのその他の商品","",class: "pickup__subtitle--exhibitor"
       .pickup__products
         - @items1.each do |item|
           .product
@@ -161,7 +160,6 @@
                   .product__image--text
                     SOLD
                 - else
-
               .product__body
                 .product__name
                   = item.name
