@@ -34,25 +34,31 @@
       .pickup__products
         - @items_category_women.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
-
 
   .top-products
     .pickup
@@ -61,22 +67,28 @@
       .pickup__products
         - @items_category_men.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -88,22 +100,28 @@
       .pickup__products
         - @items_category_baby.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -114,22 +132,28 @@
       .pickup__products
         - @items_category_cosmetic.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -142,22 +166,28 @@
       .pickup__products
         - @items_brand_chanel.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -168,22 +198,28 @@
       .pickup__products
         - @items_brand_louis_vuitton.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -194,22 +230,28 @@
       .pickup__products
         - @items_brand_supreme.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"
 
@@ -220,22 +262,28 @@
       .pickup__products
         - @items_brand_nike.each do |item|
           .product
-            .product__image
-              = image_tag(item.item_images.first.image.url, class: "test_image")
-            .product__body
-              .product__name
-                = item.name
-                .product__name_linear
-              .product__price_and_like
-                .product__prices
-                  .product__price
-                    ¥ #{number_with_delimiter(item.price)}
-                  .product__tax
-                    (税込)
-                .product__like
-                  .far.fa-heart.product__good_icon
-                  .product__like_num
-                    12
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
 
       .pickup__show-all
         = link_to "すべての商品を見る", categories_path,class: "show-all__button"

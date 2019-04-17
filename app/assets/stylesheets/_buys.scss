@@ -103,6 +103,9 @@
     line-height: 48px;
     color: #fff;
   }
+  &__buy-botton{
+    cursor: pointer;
+  }
   &__content2{
     @include box(auto,700px);
     padding: 25px;

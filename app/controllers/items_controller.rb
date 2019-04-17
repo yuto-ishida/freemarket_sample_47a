@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,only: [:new,:create]
+  before_action :authenticate_user!,only: [:new,:create,:buy,:pay]
   before_action :set_category, only: [:index, :show]
 
   def index
@@ -69,10 +69,31 @@ class ItemsController < ApplicationController
     end
   end
 
+  def buy
+    @item = Item.find(params[:id])
+  end
+
+  def pay
+    Payjp.api_key = "#{ENV['PAYJP_PRIVATE_KEY']}"
+    customer_id = current_user.credit_cards.last.customer_id
+    price = params[:item_price]
+
+    Payjp::Charge.create(
+    amount: price,
+    currency: 'jpy',
+    customer: customer_id
+  )
+    item_id = params[:item_id]
+    @item = Item.find(item_id)
+    @item.status_id = 4
+    @item.save
+
+    redirect_to  root_path
+  end
 
   private
   def item_params
-    params.require(:item).permit(:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:id,:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_category
