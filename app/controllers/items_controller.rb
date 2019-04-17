@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      ItemImage.where(id: item_image_params ).destroy_all
       render :new
     end
   end
@@ -49,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.new(item_params)
+    @item = Item.find(params[:id])
     if @item.user_id == current_user.id
       @item.update_attributes(item_params)
     end
@@ -93,7 +92,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:id,:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:id ,:image,:_destroy] ).merge(user_id: current_user.id)
   end
 
   def set_category
