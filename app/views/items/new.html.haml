@@ -7,8 +7,8 @@
       .item_new__title
         商品の情報を入力
       %hr.item_new__line
-        = f.fields_for :item_images do |i|
-          .image_form
+        .image_form
+          = f.fields_for :item_images do |i|
             .item_new__image
               .item_new__image--titles
                 .item_new__child--title
@@ -17,12 +17,12 @@
                   必須
               .item_new__image--description
                 最大10枚までアップロードできます
-                = i.label :image do
-                  .item_new__image--input
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
-                    %br
+                = i.file_field :image ,class: " item_new__image--views-box input_image"
+                .item_new__image--input
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+                  %br
 
         .item_new__image--views
 
