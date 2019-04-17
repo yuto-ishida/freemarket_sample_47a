@@ -59,6 +59,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @items1 = Item.all.order("RAND(1)").limit(4)
+    @items2 = Item.all.order("RAND(2)").limit(4)
+
   end
 
   def destroy
