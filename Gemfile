@@ -41,6 +41,8 @@ gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ancestry'
+gem 'ransack'
+gem 'gretel'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -72,4 +74,4 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
-gem 'gretel'
+

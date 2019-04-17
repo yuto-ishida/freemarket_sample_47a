@@ -54,6 +54,24 @@
           padding: 10px 16px 8px;
           border: 1px solid #ccc;
           border-radius: 4px;
+
+        }
+        &-suggest{
+          position: absolute;
+          top:28px;
+          left: 0;
+          overflow-x: scroll;
+          border: 1px solid #ccc;
+          @include box(200px, 214px);
+          display: none;
+          background-color: white;
+          &-text{
+            background-color: white;
+            @include box(10px, 200px);
+            padding:10px 7px;
+            font-size: 12px;
+          }
+
         }
 
         &-arrow_icon{
@@ -62,6 +80,9 @@
           left: 210px;
           font-size: larger;
           color: #aaa;
+        }
+        &-suggest{
+
         }
         &-range-boxs{
           display: flex;
@@ -78,6 +99,14 @@
         }
       }
     }
+    &--category{
+      &-child{
+        display: none;
+      }
+      &-grandchild{
+        display: none;
+      }
+    }
   }
   &__result{
     width: 900px;
@@ -92,9 +121,6 @@
       font-size: 14px;
     }
   }
-}
-
-.search{
   &__result--boxs{
  }
   &__result--box{
@@ -133,7 +159,7 @@
   &__prices{
   }
   &__price{
-    font-size: 20px;
+    font-size: 17px;
   }
   &__tax{
     margin-top: -6px;
@@ -149,5 +175,9 @@
   }
   &__like_num{
     font-size: 16px;
+  }
+  &__hide{
+    display: none;
+
   }
 }
