@@ -23,9 +23,10 @@
                 %br
                 .item_new__image--views
                   = f.fields_for :item_images do |i|
-                    .item_new__image--views-box
-                    = i.file_field :image , id: "image_up",class: "input_image_#{i.object.id} item_new__image--views-box-input",value: i.object.id
-                    = image_tag(i.object.image.url,class:"item_new__image--views-box-img preview input_image_#{i.object.id}",value: i.object.id )
+                    .item_new__image--views-box{class:"item_new__image--views-box#{i.object.id}"}
+                      = i.file_field :image ,class: "input_image_#{i.object.id} item_new__image--views-box-input input_image",value: i.object.id
+                      = i.file_field :id ,class: "input_image_#{i.object.id} item_new__image--views-box-input input_image",value: i.object.id
+                      = image_tag(i.object.image.url,class:"item_new__image--views-box-img preview input_image_#{i.object.id}",value: i.object.id )
 
 
 
