@@ -1,9 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many :CategoryItems, dependent: :destroy
-  has_many :categories, through: :CategoryItems
+  has_many :categories, through: :CategoryItems, dependent: :destroy
   has_many :BrandItems
-  has_many :brands, through: :BrandItems
+  has_many :brands, through: :BrandItems, dependent: :destroy
   has_many :item_image_items
   has_many :item_images, through: :item_image_items, dependent: :destroy
   belongs_to :condition
@@ -19,6 +19,7 @@ class Item < ApplicationRecord
   has_many :points
   has_many :evaluations
   has_many :likes, dependent: :destroy
+
   accepts_nested_attributes_for :item_images
 
   validates_presence_of :name,:description, :user_id, :condition_id, :shipping_burden_id, :shipping_style_id, :prefecture_id, :date_of_shipment_id, :price, :status_id, :category_ids, :item_size_ids
@@ -26,5 +27,5 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :prefecture
 
-
+  accepts_nested_attributes_for :item_images, allow_destroy: true
 end

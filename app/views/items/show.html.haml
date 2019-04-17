@@ -150,148 +150,55 @@
       .pickup__title
         =link_to "#{@item.user.name}さんのその他の商品","",class: "pickup__subtitle--exhibitor"
       .pickup__products
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              = @item_name[2]['name']
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
+        - @items1.each do |item|
+          .product
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
 
       .pickup__products
+        - @items2.each do |item|
+          .product
+            = link_to item_url(id: item.id) do
+              .product__image
+                = image_tag(item.item_images.first.image.url, class: "test_image")
+                - if item.status_id == 4
+                  .product__image__sold-out-badge
+                  .product__image--text
+                    SOLD
+                - else
 
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
-
-        .product
-          .product__image
-            = image_tag('/top_images/test1.jpg', class: "test_image")
-          .product__body
-            .product__name
-              マーガレッド ハウエル サンダルああああああああ
-              .product__name_linear
-            .product__price_and_like
-              .product__prices
-                .product__price
-                  ¥4,000
-                .product__tax
-                  (税込)
-              .product__like
-                .far.fa-heart.product__good_icon
-                .product__like_num
-                  12
+              .product__body
+                .product__name
+                  = item.name
+                  .product__name_linear
+                .product__price_and_like
+                  .product__prices
+                    .product__price
+                      ¥ #{number_with_delimiter(item.price)}
+                    .product__tax
+                      (税込)
+                  .product__like
+                    .far.fa-heart.product__good_icon
+                    .product__like_num
+                      12
 = render "shered/fotter"
