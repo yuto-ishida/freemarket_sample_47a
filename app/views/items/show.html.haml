@@ -148,15 +148,14 @@
   .top-products--exhibitor
     .pickup
       .pickup__title
-      .pickup__subtitle--exhibitor
-        メルカリさんのその他の商品
+        =link_to "#{@item.user.name}さんのその他の商品","",class: "pickup__subtitle--exhibitor"
       .pickup__products
         .product
           .product__image
             = image_tag('/top_images/test1.jpg', class: "test_image")
           .product__body
             .product__name
-              マーガレッド ハウエル サンダルああああああああ
+              = @item_name[2]['name']
               .product__name_linear
             .product__price_and_like
               .product__prices

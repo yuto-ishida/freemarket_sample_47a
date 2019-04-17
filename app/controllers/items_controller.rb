@@ -60,6 +60,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_name = Item.select("name")
+    @item_price = Item.select("price")
   end
 
   def destroy
