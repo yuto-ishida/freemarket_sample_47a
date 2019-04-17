@@ -58,12 +58,17 @@
               .fas.fa-question-circle.card_new__content__box__discription--icon
               .card_new__content__box__discription--text
                 カード裏面の番号とは？
-          - if current_user.credit_cards.last.customer_id = true
-            .card_new__content__box__false-button
-              既に登録されています
-          - else
+          - if @credits.empty? or current_user.credit_cards.empty?
             .card_new__content__box__red-button
               = form_tag(action: :create, method: :post) do
                 %script.payjp-button{"data-key" => "#{ENV['PAYJP_PUBLIC_KEY']}", :src => "https://checkout.pay.jp", :type => "text/javascript", "data-token-name" => "token_name"}
+
+          - elsif current_user.credit_cards.first.customer_id = true
+            .card_new__content__box__false-button
+              既に登録されています
+
+          - else
+            .card_new__content__box__false-button
+              予期しないエラーが発生しました。
 
 = render "shered/fotter"
