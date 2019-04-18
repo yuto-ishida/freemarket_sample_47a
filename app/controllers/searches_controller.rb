@@ -3,11 +3,7 @@ class SearchesController < ApplicationController
 
   def index
     if params[:keyword]
-      if params[:keyword].empty?
-        @items = []
-      else
-        @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
-      end
+      params[:keyword].empty? ? @items = [] : @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
     end
 
       @search = Item.ransack(search_params)
