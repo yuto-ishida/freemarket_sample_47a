@@ -1,44 +1,54 @@
-$(function() {
+$(window).on('load',function(){
+  if(document.URL.match("new")) {
 
-  function buildSendImageHTML(image){
+  function builduploadimageHTML(image_box_no){
     var html = `
-                <img class="item_new__image--views-img" src=${image.image} alt="Is">
-                `
-    return html;
-  };
-
-  function buildSendTagHTML(image){
-    var html = `
-              <input name='item[item_image_ids][]' type='hidden' value='${image.id}'>
+                <input id="image_up" type="file" name="item[item_images_attributes][${image_box_no}][image]" class= "input_image_${image_box_no+1} ">
                 `
     return html;
   };
 
 
-  $('.image_form').on('submit', function(e) {
-    e.preventDefault();
-
-    var formdata = new FormData(this);
-     var url = $(this).attr('action')
-    $.ajax({
-      type: 'POST',
-      url: url,
-      data: formdata,
-      dataType: 'json',
-      contentType: false,
-      processData: false,
-      disabled: false
-    })
-    .done(function(image){
-      var html = buildSendImageHTML(image);
-      $(".item_new__image--views").append(html);
-      var html_tag = buildSendTagHTML(image);
-      $(".item_new__send").append(html_tag);
-      $(".form__submit").removeAttr("disabled");
-    })
-    .fail(function(error){
-      alert('error')
+    var image_no = 0;
+    $('form').on('change', 'input[type="file"],.item_image_new', function(e) {
+     image_no += 10;
+      var file = e.target.files[0],
+          reader = new FileReader(),
+          $preview = $(".item_new__image--views");
+          t = this;
+      if(file.type.indexOf("image") < 0){
+        return false;
+      }
+      reader.onload = (function(file) {
+        return function(e) {
+          $preview.append($('<img>').attr({
+                    src: e.target.result,
+                    height: "100px",
+                    width: "100px",
+                    class: "preview",
+                    title: file.name,
+                    id: "preview_"+image_no,
+                    value: image_no
+                }));
+        };
+      })(file);
+      reader.readAsDataURL(file);
+      $(this).addClass("item_new__image--views-box-input")
     });
-  });
 
-})
+    var new_image_box_no = 100
+    $(document).on("click",'.item_new__image--input',function(){
+        var add_html = builduploadimageHTML(new_image_box_no)
+        $(".item_new__image--description").prepend(add_html);
+        new_image_box_no += 1
+    });
+
+    $(document).on("click",'.preview',function(){
+      var image_box_no = $(this).attr("value");
+      $('.input_image_'+ image_box_no).remove();
+      $(this).remove();
+    });
+  };
+});
+
+

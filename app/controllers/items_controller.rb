@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!,only: [:new,:create]
+  before_action :authenticate_user!,only: [:new,:create,:buy,:pay]
   before_action :set_category, only: [:index, :show]
 
   def index
+
     @category_women = Category.find(1)
     @items_category_women = @category_women.items.order("created_at DESC").limit(4)
 
@@ -30,7 +31,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @ItemImage = ItemImage.new
+    @item.item_images.build
   end
 
   def create
@@ -38,32 +39,66 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      ItemImage.where(id: item_image_params ).destroy_all
       render :new
     end
   end
 
-  def show
+  def edit
     @item = Item.find(params[:id])
   end
 
+  def update
+
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      @item.update_attributes(item_params)
+    end
+    redirect_to root_path
+
+  end
+
+  def show
+    @item = Item.find(params[:id])
+    @item_name = Item.select("name")
+    @item_price = Item.select("price")
+    @items1 = Item.all.order("RAND(1)").limit(4)
+    @items2 = Item.all.order("RAND(2)").limit(4)
+  end
+
   def destroy
-   item = Item.find(params[:id])
-   if item.user_id == current_user.id
+    item = Item.find(params[:id])
+    if item.user_id == current_user.id
       item.destroy
       redirect_to root_path
-   end
+    end
+  end
+
+  def buy
+    @item = Item.find(params[:id])
+    @credits = CreditCard.all
+  end
+
+  def pay
+    Payjp.api_key = "#{ENV['PAYJP_PRIVATE_KEY']}"
+    customer_id = current_user.credit_cards.last.customer_id
+    price = params[:item_price]
+
+    Payjp::Charge.create(
+    amount: price,
+    currency: 'jpy',
+    customer: customer_id
+  )
+    item_id = params[:item_id]
+    @item = Item.find(item_id)
+    @item.status_id = 4
+    @item.save
+
+    redirect_to  root_path
   end
 
   private
   def item_params
-    params.require(:item).permit(:status_id ,{:item_image_ids => []},:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price).merge(user_id: current_user.id)
-  end
-
-  def item_image_params
-    image_ids = params.require(:item).permit(:item_image_ids => [])
-    item_image_ids = image_ids[:item_image_ids]
-    return item_image_ids
+    params.require(:item).permit(:status_id ,:category_ids, :item_size_ids, :brand_ids ,:name,:description,:condition_id,:shipping_burden_id, :shipping_style_id ,:prefecture_id,:date_of_shipment_id ,:price,item_images_attributes: [:id ,:image,:_destroy] ).merge(user_id: current_user.id)
   end
 
   def set_category

@@ -6,6 +6,10 @@ class ItemImagesController < ApplicationController
         format.json
       end
   end
+
+  def update
+  end
+
   private
   def image_params
     params.require(:item_image).permit(:image)

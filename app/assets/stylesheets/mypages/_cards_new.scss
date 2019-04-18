@@ -125,7 +125,18 @@
       }
       &__red-button:hover{
         cursor:pointer;
-
+      }
+      &__false-button{
+        color:#fff;
+        margin-top:28px;
+        @include box(48px,auto);
+        background-color:#888;
+        font-size:14px;
+        text-align:center;
+        line-height:48px;
+      }
+      &__false-button{
+        cursor: not-allowed;
       }
     }
   }

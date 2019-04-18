@@ -37,6 +37,34 @@
       width: 300px;
       height: 420px;
       position: relative;
+      &__sold-out-badge{
+        position:absolute;
+        border-width: 120px 120px 0 0;
+        border-color: #ea352d transparent transparent transparent;
+        display: block;
+        content: '';
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        color:white;
+
+
+      }
+      &--text{
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      color: #fff;
+      transform: rotate(-45deg);
+      letter-spacing: 2px;
+      font-weight: 600;
+          top: 24px;
+      font-size: 28px;
+
+      }
     }
 
     &--left{
@@ -105,12 +133,12 @@
       border-collapse: collapse;
       border: 1px solid #f5f5f5;
 
-      &--name{
+      .exhibitor__right--name{
       text-decoration: none;
       color: #0099e8;
       }
 
-      &--name:hover{
+      .exhibitor__right--name:hover{
         text-decoration: underline;
         color: #0099e8;
       }
@@ -451,18 +479,40 @@
 
 
 .tops_show__main--purchase {
-height: 60px;
-width: 620px;
-line-height: 60px;
-color: #fff;
-display: block;
-margin: 24px 0 0;
-background: #ea352d;
-line-height: 60px;
-text-align: center;
-font-weight: 600;
-font-size: 24px;
+  height: 60px;
+  width: 620px;
+  line-height: 60px;
+  color: #fff;
+  display: block;
+  margin: 24px 0 0;
+  background: #ea352d;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
 }
+.tops_show__main--purchase:hover {
+  color: #fff;
+}
+.tops_show__main--not-purchase {
+  height: 60px;
+  width: 620px;
+  line-height: 60px;
+  color: #fff;
+  display: block;
+  margin: 24px 0 0;
+  background: #888;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 24px;
+
+}
+.tops_show__main--not-purchase:hover {
+  color: #fff;
+  cursor: not-allowed;
+}
+
 
 .tops_show__main--text{
   width: 620px;

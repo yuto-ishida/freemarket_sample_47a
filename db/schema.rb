@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190406055836) do
+ActiveRecord::Schema.define(version: 20190415101842) do
 
   create_table "brand_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "brand_id",   null: false
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 20190406055836) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.index ["user_id"], name: "index_contact_informations_on_user_id", using: :btree
+  end
+
+  create_table "credit_cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",        null: false
+    t.string   "customer_id", null: false
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_credit_cards_on_user_id", using: :btree
   end
 
   create_table "date_of_shipments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -204,6 +213,15 @@ ActiveRecord::Schema.define(version: 20190406055836) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id", using: :btree
+  end
+
   create_table "statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -211,6 +229,7 @@ ActiveRecord::Schema.define(version: 20190406055836) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -219,6 +238,7 @@ ActiveRecord::Schema.define(version: 20190406055836) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["name"], name: "index_users_on_name", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
@@ -227,6 +247,7 @@ ActiveRecord::Schema.define(version: 20190406055836) do
   add_foreign_key "buyers", "users"
   add_foreign_key "category_items", "items"
   add_foreign_key "contact_informations", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "evaluations", "items"
   add_foreign_key "evaluations", "users"
   add_foreign_key "evaluators", "evaluations"
@@ -245,4 +266,5 @@ ActiveRecord::Schema.define(version: 20190406055836) do
   add_foreign_key "messages", "users"
   add_foreign_key "points", "items"
   add_foreign_key "points", "users"
+  add_foreign_key "sns_credentials", "users"
 end

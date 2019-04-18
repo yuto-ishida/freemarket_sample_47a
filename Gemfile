@@ -73,4 +73,8 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
+gem 'payjp'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 

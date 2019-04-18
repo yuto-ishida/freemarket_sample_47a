@@ -98,10 +98,22 @@
   }
   &__buy-botton{
     @include box(48px,320px);
+    background: #ea352d;
+    margin: 0 auto;
+    line-height: 48px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  &__buy-botton-false{
+    @include box(48px,320px);
     background: #888;
     margin: 0 auto;
     line-height: 48px;
     color: #fff;
+    cursor: not-allowed;
+    font-size: 14px;
   }
   &__content2{
     @include box(auto,700px);
