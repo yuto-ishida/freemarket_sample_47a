@@ -4,7 +4,7 @@
     .search__search_bar
       = search_form_for @search, url: searches_path,method: "POST" do |f|
         .search__search_bar--sort
-          = f.select :s ,{"並び替え" => "","価格の安い順" => "price asc","価格の高い順" => "price desc","出品の古い順" => "created_at desc","出品の新しい順" => "created_at asc"},{},{class: "search__sort search__search_bar--sort-input",id: "search__sort"}
+          = f.select :s ,{"並び替え": "","価格の安い順": "price asc", "価格の高い順": "price desc","出品の古い順": "created_at desc","出品の新しい順": "created_at asc"},{},{class: "search__sort search__search_bar--sort-input",id: "search__sort"}
 
           .fas.fa-chevron-down.search__search_bar--sort-allow_icon
         .search__search_bar--detailed_search
@@ -74,7 +74,7 @@
                 価格
               %br
             .search__search_bar--detailed_search-input
-              = f.select :price, {"選択してください" => "---","300 ~ 1000" => "300 ~ 1000","1000 ~ 5000" => "1000 ~ 5000","5000 ~ 10000" => "5000 ~ 10000","10000 ~ 30000" => "10000 ~ 30000", "30000 ~ 50000" => "30000 ~ 50000","50000 ~" => "50000 ~"},{},{class: "search__search_bar--detailed_search-input-price search__search_bar--detailed_search-input-box",id: "search__price-input",autocomplete: "off" }
+              = f.select :price, {"選択してください": "---","300 ~ 1000": "300 ~ 1000","1000 ~ 5000": "1000 ~ 5000","5000 ~ 10000": "5000 ~ 10000","10000 ~ 30000": "10000 ~ 30000", "30000 ~ 50000": "30000 ~ 50000","50000 ~": "50000 ~"},{},{class: "search__search_bar--detailed_search-input-price search__search_bar--detailed_search-input-box",id: "search__price-input",autocomplete: "off" }
 
               .fas.fa-chevron-down.search__search_bar--detailed_search-input-allow-icon
             .search__search_bar--detailed_search-input-range-boxs
@@ -143,7 +143,7 @@
             = f.submit '検索', class: "search__submit",id:"search__submit"
 
     .search__result
-      - if @items.empty?
+      - if @view_items.empty?
         .search__result--title
           検索結果 0件
         .search__result-description
@@ -155,7 +155,7 @@
           件
 
       .search__result--boxs
-        - @items.each do |item|
+        - @view_items.each do |item|
           .search__result--box
             .search__image
               = image_tag(item.item_images.first.image.url, class: "test_image")

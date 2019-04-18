@@ -2,12 +2,10 @@ class SearchesController < ApplicationController
   before_action :set_category, only:  [:index]
 
   def index
-    if params[:keyword]
-      params[:keyword].empty? ? @items = [] : @items = Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
-    end
+    @view_items = params[:keyword].empty? ? []  : Item.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
 
-      @search = Item.ransack(search_params)
-      @items = @search.result(distinct: true).includes(:item_images)
+    @search = Item.ransack(:q)
+    @items = @search.result(distinct: true).includes(:item_images)
   end
 
   def create

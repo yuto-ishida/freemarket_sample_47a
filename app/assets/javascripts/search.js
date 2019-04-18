@@ -121,33 +121,33 @@ $(window).on('load',function(){
   function buildSendItemHTML(item){
 
     var html = `
-            <div class="search__result--box">
-            <div class="search__image">
-            <img class="test_image" src="${item.url}">
-            </div>
-            <div class="search__body">
-            <div class="search__name">
+      <div class="search__result--box">
+        <div class="search__image">
+          <img class="test_image" src="${item.url}">
+        </div>
+        <div class="search__body">
+          <div class="search__name">
             ${item.name}
             <div class="search__name_linear"></div>
-            </div>
-            <div class="search__price_and_like">
+          </div>
+          <div class="search__price_and_like">
             <div class="search__prices">
-            <div class="search__price">
-            ¥ ${(item.price).toLocaleString()}
-            </div>
-            <div class="search__tax">
-            (税込)
-            </div>
+              <div class="search__price">
+              ¥ ${(item.price).toLocaleString()}
+              </div>
+              <div class="search__tax">
+                (税込)
+              </div>
             </div>
             <div class="search__like">
-            <div class="far fa-heart search__good_icon"></div>
-            <div class="search__like_num">
-            12
+              <div class="far fa-heart search__good_icon"></div>
+              <div class="search__like_num">
+                12
+              </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div>
+          </div>
+        </div>
+      </div>
     `
     return html;
   }
