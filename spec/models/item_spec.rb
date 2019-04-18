@@ -95,4 +95,13 @@ RSpec.describe Item, type: :model do
       end
     end
   end
+
+
+  describe "scope" do
+    describe "open" do
+        let!(:applecable_item) { create(:item,user: user,condition: condition,shipping_burden: shipping_burden, shipping_style: shipping_style, date_of_shipment: date_of_shipment,category_ids: category.id, item_size_ids: item_size.id , status: status, item_image_ids: item_image.id) }
+        subject { Item.all }
+        it { is_expected.to include applecable_item }
+    end
+  end
 end

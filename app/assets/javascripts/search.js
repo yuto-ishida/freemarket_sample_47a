@@ -1,11 +1,57 @@
 $(window).on('load',function(){
-　
+
+// フォームクリア
+  $(document).on("click",".search__form-clear",function(){
+    $('#item_search')[0].reset();
+    $(".search__search_bar--category-child").css("display","none");
+    $(".search__search_bar--category-grandchild").css("display","none");
+    $(".search__search_bar--detailed_search-input-item_size-box").css("display","none");
+  });
+
+
+  $(document).on("click",'input[name="q[condition_id]"]',function(){
+  if($("#search__check-box-all-condition").prop('checked')) {
+    $('input[name="q[condition_id_eq_any]"]').prop("checked",true);
+   }
+   else {
+    $('input[name="q[condition_id_eq_any]"]').prop("checked",false);
+   }
+
+
+  });
+  $(document).on("click",'input[name="q[shipping_burden_id]"]',function(){
+
+  if($("#search__check-box-all-shipping_burden").prop('checked')) {
+    $('input[name="q[shipping_burden_id_in_any]"]').prop("checked",true);
+   }else {
+    $('input[name="q[shipping_burden_id_in_any]"]').prop("checked",false);
+   }
+  });
+
+
+
+  $(document).on("click",'input[name="q[status_id]"]',function(){
+
+
+  if($("#search__check-box-all-status").prop('checked')) {
+    $('input[name="q[status_id_in_any]"]').prop("checked",true);
+   }else {
+    $('input[name="q[status_id_in_any]"]').prop("checked",false);
+   }
+  });
+
+
   // 価格の上下検索
   $(document).on("change",".search__search_bar--detailed_search-input-price",function(){
      var value = $('#search__price-input option:selected').text();
      var value_num = value.split(" ~ ")
-     $("#search__price-input-low").val(value_num[0])
-     $("#search__price-input-high").val(value_num[1])
+    if (value_num.length == 2){
+      $("#search__price-input-low").val(value_num[0])
+      $("#search__price-input-high").val(value_num[1])
+    }else{
+      $("#search__price-input-low").val("")
+      $("#search__price-input-high").val("")
+    }
   });
 
 // カテゴリの選択
@@ -14,7 +60,9 @@ $(window).on('load',function(){
     $(".search__search_bar--category-child").css("display","none");
     $(".search__search_bar--category-grandchild").css("display","none");
       parent_value = $('#search__category-parent option:selected').val();
-     $(".search__search_bar--category-"+parent_value).css("display","unset")
+    $(".search__search_bar--category-"+parent_value).css("display","unset")
+    $('input[name="q[categories_id_in_any][]"]').prop("checked",false);
+    $(".search__search_bar--detailed_search-input-box-child").val("");
   });
   $(document).on("change",".search__search_bar--detailed_search-input-box-child",function(){
     $(".search__search_bar--category-grandchild").css("display","none");
@@ -22,6 +70,7 @@ $(window).on('load',function(){
     var category_id = '#search__category-child-' + parent_value
     var child_num = $(category_id).val();
     $(".search__search_bar--category-" + child_num).css("display","unset");
+    $('input[name="q[categories_id_in_any][]"]').prop("checked",false);
   });
 
 
@@ -30,10 +79,8 @@ $(window).on('load',function(){
     var item_size_parent_id = $(this).val();
     $(".search__search_bar--detailed_search-input-item_size-box").css("display","none")
      $(".search__item_sizes_"+item_size_parent_id).css("display","unset")
-
+     $('input[name="q[item_sizes_id_in_any][]"]').prop("checked",false);
   });
-
-
 
 
   // ブランド名のインクリメンタルサーチ
@@ -79,14 +126,7 @@ $(window).on('load',function(){
   });
 
 
-
-
-
-
-
-
-
-
+// 検索
   function buildSendItemHTML(item){
 
     var html = `
@@ -126,11 +166,6 @@ $(window).on('load',function(){
 
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    // console.log(formData.get('#item_search'));
-    for (value of formData.entries()) {
-    console.log(value);
-}
-
     $.ajax({
       url: url,
       type: "POST",
@@ -140,6 +175,7 @@ $(window).on('load',function(){
       contentType: false
     })
     .done(function(items){
+      $(".search__result--title").text("検索結果 1-" + items.length + "件");
       $('.search__result--boxs').empty();
       items.forEach(function(item) {
         var html = buildSendItemHTML(item);
@@ -151,18 +187,12 @@ $(window).on('load',function(){
     })
     .always(() => {
       $(".search__submit").removeAttr("disabled");
-
     });
-
   })
 
 
-
-
-// $('input[name="checkbox"]').prop("checked",true);
-
-
-$(document).on("change","#search__sort",function(e){
+// ソート
+  $(document).on("change","#search__sort",function(e){
     e.preventDefault();
     var for_sort_target = $("#item_search");
     var for_sort_formData = new FormData(for_sort_target.get(0));
@@ -177,6 +207,7 @@ $(document).on("change","#search__sort",function(e){
       contentType: false
     })
     .done(function(items){
+      $(".search__result--title").text("検索結果 1-" + items.length + "件");
       $('.search__result--boxs').empty();
       items.forEach(function(item) {
         var html = buildSendItemHTML(item);
@@ -187,9 +218,6 @@ $(document).on("change","#search__sort",function(e){
       alert('error');
     })
     .always(() => {
-
     });
-
   });
-
 });
