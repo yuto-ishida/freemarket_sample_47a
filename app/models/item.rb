@@ -1,8 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-
-  has_many :Category_items, dependent: :destroy
-  has_many :categories, through: :Category_items, dependent: :destroy
+  has_many :CategoryItems, dependent: :destroy
+  has_many :categories, through: :CategoryItems, dependent: :destroy
   has_many :BrandItems
   has_many :brands, through: :BrandItems, dependent: :destroy
   has_many :item_image_items
@@ -17,7 +16,9 @@ class Item < ApplicationRecord
   has_many :item_sizes, through: :item_size_items
   belongs_to :status
   has_many :messages, dependent: :destroy
-
+  has_many :points
+  has_many :evaluations
+  has_many :likes, dependent: :destroy
 
   accepts_nested_attributes_for :item_images
 

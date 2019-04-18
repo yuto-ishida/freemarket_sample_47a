@@ -40,8 +40,8 @@ gem 'active_hash'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'ransack'
-gem 'gretel'
+gem 'ancestry'
+gem 'date'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -74,7 +74,8 @@ group :production do
 end
 
 gem 'payjp'
+
+gem 'gretel'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-
