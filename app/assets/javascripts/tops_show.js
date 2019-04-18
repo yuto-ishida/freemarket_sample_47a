@@ -1,6 +1,6 @@
-$(document).ready(function(){
-  $('tops_show__main--right').slick({
-    speed: 1000,
-    arrows: true,
-  });
+$(function(){
+  $(".tops_show__main--details").on("mouseover",function(){
+    var url = $(this).attr("src")
+    $(".tops_show__main--left").attr("src",url)
+  })
 });
