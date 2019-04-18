@@ -15,18 +15,15 @@
     &--sort{
       position: relative;
       &-input{
-        @include box(46px,280px);
+        @include box(46px,246px);
         padding: 0 16px;
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: white;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
       }
       &-allow_icon{
         position: absolute;
-        top: 15px;
+        top: 17px;
         left: 245px;
         font-size: larger;
         color: #aaa;
@@ -39,16 +36,12 @@
       &-title{
         font-size: 16px;
         font-weight: 600;
-        margin-bottom: -20px;
 
       }
       &-box{
-        margin-top: 40px;
-
+        margin-top: 24px;
       }
       &-sub-title{
-        font-size: 14px;
-        display: flex;
         &-icon{
           color: #aaa;
         }
@@ -57,80 +50,12 @@
         margin-top: 8px;
         position: relative;
         &-box{
-          @include box(48px,248px);
+          @include box(28px,214px);
           padding: 10px 16px 8px;
           border: 1px solid #ccc;
           border-radius: 4px;
-          background-color: white;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          font-weight: none !important;
-          input, textarea,select{
-          font-weight: none;
-          }
-          &-child{
-            margin-top: 8px;
-          }
         }
-        &-allow-icon{
-          position: absolute;
-          top: 17px;
-          left: 215px;
-          font-size: larger;
-          color: #aaa;
-        }
-        &-allow-icon-child{
-            position: absolute;
-            top: 0px !important ;
-            left: 215px;
-            font-size: larger;
-            color: #aaa;
-            top:10px;
-        }
-        &-suggest{
-          position: absolute;
-          top:48px;
-          left: 0;
-          overflow-x: scroll;
-          border: 1px solid #ccc;
-          @include box(200px, 245px);
-          display: none;
-          background-color: white;
-          z-index: 100;
-          &-text{
-            background-color: white;
-            @include box(10px, 200px);
-            padding:10px 7px;
-            font-size: 12px;
-          }
-        }
-        &-check-boxs{
-          width: 248px;
-          margin-top: 8px;
-        }
-        &-check-box{
-          @include box(40px, 119px);
-          float: left;
-          display: flex;
-          font-weight: none;
-          padding-right: 5px;
 
-          &-box{
-            margin: auto 0;
-          }
-          &-text{
-            margin: auto 0;
-            padding-left: 8px;
-            font-size: 14px;
-            line-height: 14px;
-          }
-        }
-        &-check-boxs:after{
-          content: '';
-          display: block;
-          clear: both;
-        }
         &-arrow_icon{
           position: absolute;
           top: 17px;
@@ -153,14 +78,6 @@
         }
       }
     }
-    &--category{
-      &-child{
-        display: none;
-      }
-      &-grandchild{
-        display: none;
-      }
-    }
   }
   &__result{
     width: 900px;
@@ -175,6 +92,9 @@
       font-size: 14px;
     }
   }
+}
+
+.search{
   &__result--boxs{
  }
   &__result--box{
@@ -213,7 +133,7 @@
   &__prices{
   }
   &__price{
-    font-size: 17px;
+    font-size: 20px;
   }
   &__tax{
     margin-top: -6px;
@@ -229,36 +149,5 @@
   }
   &__like_num{
     font-size: 16px;
-  }
-  &__hide{
-    display: none;
-
-  }
-  &__check-box-space{
-    @include box(20px,245px);
-  }
-  &__form-buttons{
-    display: flex;
-  }
-  &__form-clear{
-    @include box(48px,110px);
-    background-color: #aaa;
-    border: none;
-    color: white;
-    font-size: 14px;
-    margin-right: auto;
-  }
-  &__submit{
-    @include box(48px,110px);
-    background-color: #ea352d;
-    border: none;
-    color: white;
-    font-size: 14px;
-  }
-  &__sub-title{
-    font-weight: 600;
-    padding-left: 5px;
-    line-height: 14px;
-
   }
 }

@@ -1,146 +1,75 @@
 = render "shered/header"
+
 .search
   .search__main
     .search__search_bar
-      = search_form_for @search, url: searches_path,method: "POST" do |f|
-        .search__search_bar--sort
-          = f.select :s ,{"並び替え" => "","価格の安い順" => "price asc","価格の高い順" => "price desc","出品の古い順" => "created_at desc","出品の新しい順" => "created_at asc"},{},{class: "search__sort search__search_bar--sort-input",id: "search__sort"}
+      .search__search_bar--sort
+        .search__search_bar--sort-input
+        .fas.fa-chevron-down.search__search_bar--sort-allow_icon
+      .search__search_bar--detailed_search
+        .search__search_bar--detailed_search-title
+          詳細検索
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-plus.search__search_bar--detailed_search-sub-title-icon
+            キーワードを追加する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-list.search__search_bar--detailed_search-sub-title-icon
+            カテゴリーを選択する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
 
-          .fas.fa-chevron-down.search__search_bar--sort-allow_icon
-        .search__search_bar--detailed_search
-          .search__search_bar--detailed_search-title
-            詳細検索
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-plus.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                キーワードを追加する
-            .search__search_bar--detailed_search-input
-              = f.search_field :name_cont , class:"search__search_bar--detailed_search-input-box",autocomplete: "off"
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-list.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                カテゴリーを選択する
-            .search__search_bar--detailed_search-input
-              .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
-            .search__search_bar--detailed_search-input.search__search_bar--category.search__search_bar--category-parents
-              = f.collection_select :categories_id ,Category.where(ancestry: nil),:id,:name,{include_blank: "すべて"},{class: "search__search_bar--detailed_search-input-box",id:"search__category-parent", type: "text",autocomplete: "off" }
-              .fas.fa-chevron-down.search__search_bar--detailed_search-input-allow-icon
-          - Category.where(ancestry: nil).each do |parent|
-            .search__search_bar--detailed_search-input.search__search_bar--detailed_search-input-child.search__search_bar--category-child{ class:"search__search_bar--category-#{parent.id}"}
-              = f.collection_select :categories_ancestry_eq ,Category.where(ancestry: parent.id),:id,:name,{multiple: true,include_blank: "すべて"},{class: "search__search_bar--detailed_search-input-box-child search__search_bar--detailed_search-input-box",id:"search__category-child-#{parent.id}", type: "text",autocomplete: "off" }
-              .fas.fa-chevron-down.search__search_bar--detailed_search-input-allow-icon-child
-              %br
-          .search__search_bar--detailed_search-input-check-boxs
-            - Category.where("id > ?",159).find_each do |grandchild|
-              .search__search_bar--detailed_search-input.search__search_bar--category-grandchild{category_grandchild:grandchild.id, class:"search__search_bar--category-#{grandchild.ancestry}" }
-                .search__search_bar--detailed_search-input-check-box
-                  .search__search_bar--detailed_search-input-check-box-box
-                    = f.check_box :categories_id_in_any , { multiple: true },grandchild.id,name:grandchild.name,class: "search__search_bar--detailed_search-input-check-box", type: "text",value: grandchild.id
-                  .search__search_bar--detailed_search-input-check-box-text
-                    = grandchild.name
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-tag.search__search_bar--detailed_search-sub-title-icon
+            ブランド名から探す
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
 
-          %br
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-tag.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                ブランド名から探す
-            .search__search_bar--detailed_search-input
-              = f.search_field :brands_name_eq , class:"search__search_bar--detailed_search-input-box search__brand-input",autocomplete: "off"
-              .search__search_bar--detailed_search-input-suggest
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .far.fa-square.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                サイズを指定する
-            .search__search_bar--detailed_search-input
-              = f.collection_select :item_sizes_id ,ItemSize.where(parents: nil),:id,:name,{include_blank: "すべて"},{class: "search__search_bar--detailed_search-input-box",id: "search__item_size",autocomplete: "off" }
-              .fas.fa-chevron-down.search__search_bar--detailed_search-input-allow-icon
-              %br
-              .search__search_bar--detailed_search-input-check-boxs
-                - ItemSize.where("id > ?", 15 ).each do |item_sizes_child|
-                  .search__search_bar--detailed_search-input-item_size-box.search__hide{class: "search__item_sizes_#{item_sizes_child.parents}"}
-                    .search__search_bar--detailed_search-input-check-box
-                      .search__search_bar--detailed_search-input-check-box-box
-                        = f.check_box :item_sizes_id_in_any , { multiple: true },name:item_sizes_child.name,class: "search__search_bar--detailed_search-input ", type: "text",value: item_sizes_child.id
-                      .search__search_bar--detailed_search-input-check-box-text
-                        = item_sizes_child.name
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-funnel-dollar.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                価格
-              %br
-            .search__search_bar--detailed_search-input
-              = f.select :price, {"選択してください" => "---","300 ~ 1000" => "300 ~ 1000","1000 ~ 5000" => "1000 ~ 5000","5000 ~ 10000" => "5000 ~ 10000","10000 ~ 30000" => "10000 ~ 30000", "30000 ~ 50000" => "30000 ~ 50000","50000 ~" => "50000 ~"},{},{class: "search__search_bar--detailed_search-input-price search__search_bar--detailed_search-input-box",id: "search__price-input",autocomplete: "off" }
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .far.fa-square.search__search_bar--detailed_search-sub-title-icon
+            サイズを指定する
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
 
-              .fas.fa-chevron-down.search__search_bar--detailed_search-input-allow-icon
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-funnel-dollar.search__search_bar--detailed_search-sub-title-icon
+            価格
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
+            .fas.fa-chevron-down.search__search_bar--detailed_search-input-arrow_icon
             .search__search_bar--detailed_search-input-range-boxs
-              = f.text_field :price_gteq, class: "search__search_bar--detailed_search-input-range-box",id: "search__price-input-low",placeholder: "¥ Min",autocomplete: "off"
+              .search__search_bar--detailed_search-input-range-box
               .search__search_bar--detailed_search-input-range-icon ~
-              = f.text_field :price_lteq, class: "search__search_bar--detailed_search-input-range-box",id: "search__price-input-high",placeholder: "¥ Max",autocomplete: "off"
+              .search__search_bar--detailed_search-input-range-box
 
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-star.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                商品の状態
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-star.search__search_bar--detailed_search-sub-title-icon
+            商品の状態
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
 
-            .search__search_bar--detailed_search-input-check-boxs
-              .search__search_bar--detailed_search-input-check-box
-                .search__search_bar--detailed_search-input-check-box-box
-                  = f.check_box :condition_id,{id:"search__check-box-all-condition"},checked_value: nil,unchecked_value: nil
-                .search__search_bar--detailed_search-input-check-box-text
-                  すべて
-              - Condition.all.each do |condition|
-                .search__search_bar--detailed_search-input-check-box
-                  .search__search_bar--detailed_search-input-check-box-box
-                    =  f.check_box :condition_id_eq_any,{},checked_value: condition.id,unchecked_value: nil
-                  .search__search_bar--detailed_search-input-check-box-text
-                    = condition.name
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-truck.search__search_bar--detailed_search-sub-title-icon
+            送料の負担
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
 
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-truck.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                送料の負担
-            .search__search_bar--detailed_search-input-check-boxs
-              .search__search_bar--detailed_search-input-check-box
-                .search__search_bar--detailed_search-input-check-box-box
-                  = f.check_box :shipping_burden_id ,{id:"search__check-box-all-shipping_burden"},checked_value: nil,unchecked_value: nil
-                .search__search_bar--detailed_search-input-check-box-text
-                  すべて
-              - ShippingBurden.all.each do |shipping_burden|
-                .search__search_bar--detailed_search-input-check-box
-                  .search__search_bar--detailed_search-input-check-box-box
-                    = f.check_box :shipping_burden_id_in_any ,{},checked_value: shipping_burden.id,unchecked_value: nil
-                  .search__search_bar--detailed_search-input-check-box-text
-                    = shipping_burden.name
-
-          .search__search_bar--detailed_search-box
-            .search__search_bar--detailed_search-sub-title
-              .fas.fa-shopping-cart.search__search_bar--detailed_search-sub-title-icon
-              .search__sub-title
-                販売状況
-            .search__search_bar--detailed_search-input-check-boxs
-              .search__search_bar--detailed_search-input-check-box
-                .search__search_bar--detailed_search-input-check-box-box
-                  = f.check_box :status_id,{id:"search__check-box-all-status"},checked_value: nil,unchecked_value: nil
-                .search__search_bar--detailed_search-input-check-box-text
-                  すべて
-              - Status.all.each do |status|
-                .search__search_bar--detailed_search-input-check-box
-                  .search__search_bar--detailed_search-input-check-box-box
-                    = f.check_box :status_id_in_any,{},checked_value: status.id,unchecked_value: nil
-                  .search__search_bar--detailed_search-input-check-box-text
-                    = status.name
-            .search__check-box-space
-          .search__form-buttons
-            =  button_tag type: 'button', class: "search__form-clear" do
-              クリア
-            = f.submit '検索', class: "search__submit",id:"search__submit"
+        .search__search_bar--detailed_search-box
+          .search__search_bar--detailed_search-sub-title
+            .fas.fa-shopping-cart.search__search_bar--detailed_search-sub-title-icon
+            販売状況
+          .search__search_bar--detailed_search-input
+            .search__search_bar--detailed_search-input-box
 
     .search__result
       - if @items.empty?

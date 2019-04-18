@@ -5,9 +5,13 @@ $(function(){
     nextArrow: '<a class="fas fa-angle-right slide-arrow next-arrow"></a>',
     dots: true,
     dotsClass: 'slide-dots'
+
   });
 
+
+
 // categoryの表示
+
   $(document).on('mouseover','.header__buttons--category',function(){
     $('.header__category_brand--box').css('display','flex');
     $('.header__category_brand--box-parents').css('display','unset');
