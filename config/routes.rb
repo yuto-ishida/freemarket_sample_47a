@@ -33,7 +33,8 @@ Rails.application.routes.draw do
     resources :credit_cards, only: [:new, :create]
   end
   resources :mypages, only: [:new, :create, :edit, :update, :show ,:destroy,:card]
-
-  resources :item_images, only: [:create,:update, :destroy]
-  resources :searches, only: [:index]
+  resources :buys, only: :index
+  resources :item_images, only: [:create, :destroy]
+  resources :searches, only: [:index ,:create]
+  resources :search_keywords, only: :index
 end

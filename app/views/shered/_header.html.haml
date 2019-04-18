@@ -48,12 +48,13 @@
         = link_to category_path(category) do
           .header__category_brand--box-parents-button{value: category.id}
             = category.name
+
     - @category.where(ancestry: nil).find_each do |category_parent|
       - if @category.find_by(ancestry:"#{category_parent.id}") != nil
         .header__category_brand--box-child{value: category_parent.id }
           - @category.where(ancestry: category_parent.id).find_each do |category|
             = link_to category_path(category) do
-              .header__category_brand--box-child-button{value: "#{category_parent.id}/#{category.id}" }
+              .header__category_brand--box-child-button{value: category.id }
                 = category.name
 
     - @category.where(ancestry: nil).find_each do |category_parent|
