@@ -15,11 +15,14 @@ end
 CSV.foreach('db/data_reading_files/statuses.csv') do |row|
   Status.create(:name => row[0])
 end
+# CSV.foreach('db/data_reading_files/users.csv') do |row|
+#   User.create(:email => row[0],:password => row[1],:password_confirmation => row[1],:name => row[2])
+# end
 CSV.foreach('db/data_reading_files/users.csv') do |row|
   User.create(:email => row[0],:password => row[1],:password_confirmation => row[1],:name => row[2])
 end
-CSV.foreach('db/data_reading_files/item_size.csv') do |row|
-  ItemSize.create(:name => row[0])
+CSV.foreach('db/data_reading_files/size.csv') do |row|
+  ItemSize.create(:name => row[0],:parents => row[1])
 end
 CSV.foreach('db/data_reading_files/brand_result.csv') do |row|
   Brand.create(:name => row[0])
