@@ -45,6 +45,7 @@ $(function(){
         if ( current_grand_child_id == grand_child_id){
           $('.header__category_brand--box-grandchild').css('display','none');
           $(this).css('display','unset');
+          };
         };
       });
     });
