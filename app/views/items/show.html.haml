@@ -1,4 +1,7 @@
 = render "shered/header"
+.pankuzu
+  - breadcrumb :items, @item
+  = breadcrumbs separator: "<text class='fas fa-chevron-right pankuzu__arrow-icon'></text>"
 .wapper
   .tops_show
     .tops_show__main
