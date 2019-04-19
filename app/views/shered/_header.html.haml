@@ -59,9 +59,9 @@
 
     - @category.where(ancestry: nil).find_each do |category_parent|
       - @category.where(ancestry: category_parent.id).find_each do |category_child|
-        - if @category.find_by(ancestry:"#{category_parent.id}/#{category_child.id}") != nil
-          .header__category_brand--box-grandchild{value: "#{category_parent.id}/#{category_child.id}" }
-            - @category.where(ancestry: "#{category_parent.id}/#{category_child.id}").find_each do |category|
+        - if @category.find_by(ancestry:14..158) != nil
+          .header__category_brand--box-grandchild{value: category_child.id }
+            - @category.where(ancestry: category_child.id).find_each do |category|
               = link_to category_path(category) do
                 .header__category_brand--box-grandchild-button
                   = category.name

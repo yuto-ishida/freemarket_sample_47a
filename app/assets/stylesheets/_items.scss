@@ -172,7 +172,7 @@ header{
     top:-5px;
     left:0;
     background-color: white;
-    z-index: 100;
+    z-index: 1000;
     display: flex;
     font-size: 14px;
 
@@ -705,6 +705,7 @@ a:hover{
     font-size: 20px;
     color:white;
     border-radius: 50%;
+    z-index: 1000;
   .camera_icon{
 
     color: white;

@@ -87,7 +87,7 @@ class ItemsController < ApplicationController
     amount: price,
     currency: 'jpy',
     customer: customer_id
-  )
+    )
     item_id = params[:item_id]
     @item = Item.find(item_id)
     @item.status_id = 4
