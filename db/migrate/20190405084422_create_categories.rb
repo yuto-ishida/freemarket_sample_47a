@@ -3,6 +3,8 @@ class CreateCategories < ActiveRecord::Migration[5.0]
     create_table :categories do |t|
       t.string :name
       t.string :ancestry, index: true
+      t.string :parent, index: true
+      t.string :child, index: true
       t.timestamps
     end
   end

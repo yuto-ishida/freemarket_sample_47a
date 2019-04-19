@@ -15,20 +15,6 @@ $(window).on('load',function(){
       return html;
     };
 
-
-
-
-    // var input_image_htmls = []
-    // $('.input.input_image').each(function(){
-    // var input_image_html = $('input.input_image').html();
-    //   input_image_htmls.push(input_image_html);
-    // });
-    // $(".item_new__image--views > input").remove();
-    // input_image_htmls.each(function(image_input_html){
-    //   $('.item_new__image--views').html(image_input_html);
-    // });
-
-
     var image_no = 0;
     $('form').on('change', 'input[type="file"],.item_image_new', function(e) {
      image_no += 10;
@@ -69,6 +55,42 @@ $(window).on('load',function(){
       var image_destroy_html = buildimagedestroyHTML(image_box_no,image_num)
       $('.item_new__image--views-box'+image_box_no).append(image_destroy_html);
     });
+
+
+    var price_value = $('.item_new__price--price-input').attr("value");
+      var sales_commission = (price_value * 0.1)
+      var sales_commission_value = Math.round(sales_commission)
+    $(".item_new__price--price-sales-commission-value").text(sales_commission_value)
+
+      $(".item_new__price--price-sales-commission-value").text(sales_commission_value)
+      var price_profit = (price_value * 0.9)
+      var price_profit_value = Math.round(price_profit)
+      $(".item_new__price--price-profit-value").text(price_profit_value)
+
+    var input_price = $(".item_new__price--price-input").val();
+      if (input_price == "" ) {
+        $(".item_new__price--price-sales-commission-value").text("ー")
+        $(".item_new__price--price-profit-value").text("ー")
+      }
+
+
+    $(document).on("keyup",".item_new__price--price-input",function(){
+      var input_price = $(".item_new__price--price-input").val();
+      if (input_price <= 9999999 && input_price >= 300){
+        var sales_commission = (input_price * 0.1)
+        var sales_commission_value = Math.round(sales_commission)
+        $(".item_new__price--price-sales-commission-value").text(sales_commission_value.toLocaleString())
+        var price_profit = input_price * 0.9
+        var price_profit_value = Math.round(price_profit);
+        $(".item_new__price--price-profit-value").text(price_profit_value.toLocaleString());
+      }else{
+        $(".item_new__price--price-sales-commission-value").text("ー")
+        $(".item_new__price--price-profit-value").text("ー")
+      }
+    });
+
+
+
   };
 });
 

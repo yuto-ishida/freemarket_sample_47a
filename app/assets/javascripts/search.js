@@ -8,12 +8,12 @@ $(window).on('load',function(){
     $(".search__search_bar--detailed_search-input-item_size-box").css("display","none");
   });
 
-// チェックボックス全体ONOFF
+// チェックボックスONOFF
   $(document).on("click",'input[name="q[condition_id]"]',function(){
     if($("#search__check-box-all-condition").prop('checked')) {
-      $('input[name="q[condition_id_eq_any]"]').prop("checked",true);
+      $('input[name="q[condition_id_in_any]"]').prop("checked",true);
     }else {
-      $('input[name="q[condition_id_eq_any]"]').prop("checked",false);
+      $('input[name="q[condition_id_in_any]"]').prop("checked",false);
     }
   });
 
@@ -117,10 +117,12 @@ $(window).on('load',function(){
   });
 
 
+
 // 検索
   function buildSendItemHTML(item){
 
     var html = `
+    <a href="/items/${item.id}">
       <div class="search__result--box">
         <div class="search__image">
           <img class="test_image" src="${item.url}">
@@ -148,13 +150,14 @@ $(window).on('load',function(){
           </div>
         </div>
       </div>
+    </a>
     `
     return html;
   }
 
   $('#item_search').on('submit', function(e){
     e.preventDefault();
-
+    $(".search__result-description").text("");
     var formData = new FormData(this);
     var url = $(this).attr('action')
     $.ajax({
@@ -185,6 +188,7 @@ $(window).on('load',function(){
 // ソート
   $(document).on("change","#search__sort",function(e){
     e.preventDefault();
+    $(".search__result-description").text("");
     var for_sort_target = $("#item_search");
     var for_sort_formData = new FormData(for_sort_target.get(0));
     for (value of for_sort_formData.entries()) {
