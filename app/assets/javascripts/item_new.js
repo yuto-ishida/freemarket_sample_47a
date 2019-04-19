@@ -55,7 +55,7 @@ $(window).on('load',function(){
         var image_input_html = $('.item_new__image--select').html();
         $('.item_new__image--select').removeClass().addClass("item_new__image--select-inputed");
         var builduploadbox = builduploadboxHTML();
-        $('.item_new__image--description').prepend(builduploadbox);
+        $('.item_new__image--description').append(builduploadbox);
           new_image_box_no += 1
       });
 
