@@ -49,11 +49,11 @@ $(window).on('load',function(){
     });
     var image_num = 0
     $(document).on("click",'.preview',function(){
-       image_num += 1
        var image_box_no = $(this).attr("value");
       $('.item_new__image--views-box'+image_box_no).empty();
       var image_destroy_html = buildimagedestroyHTML(image_box_no,image_num)
       $('.item_new__image--views-box'+image_box_no).append(image_destroy_html);
+      image_num += 1
     });
 
 
