@@ -48,17 +48,14 @@ $(window).on('load',function(){
 
       var new_image_box_no = 100
       $(document).on("click",'.item_new__image--input',function(){
+        var add_html = builduploadimageHTML(new_image_box_no)
+        $(".item_new__image--select").prepend(add_html);
         var input_image_id = $('.item_new__image--select > .item_new__image--input-input').attr("id");
         $("#"+input_image_id).trigger("click");
         var image_input_html = $('.item_new__image--select').html();
-
         $('.item_new__image--select').removeClass().addClass("item_new__image--select-inputed");
-
         var builduploadbox = builduploadboxHTML();
         $('.item_new__image--description').prepend(builduploadbox);
-
-        var add_html = builduploadimageHTML(new_image_box_no)
-        $(".item_new__image--select").prepend(add_html);
           new_image_box_no += 1
       });
 
