@@ -28,7 +28,7 @@ CSV.foreach('db/data_reading_files/brand_result.csv') do |row|
   Brand.create(:name => row[0])
 end
 CSV.foreach('db/data_reading_files/category_result.csv') do |row|
-  Category.create(:name => row[0],:ancestry => row[1])
+  Category.create(:name => row[0],:ancestry => row[1],:parent=> row[2],:child => row[3])
 end
 CSV.foreach('db/data_reading_files/item_image.csv') do |row|
   ItemImage.create( image: File.open('db/data_reading_files/images/'+ row[0]))
